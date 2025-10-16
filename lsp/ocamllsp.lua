@@ -1,7 +1,5 @@
 return {
-  cmd = { "C:\\Users\\Dpar\\AppData\\Local\\opam\\default\\bin\\ocamllsp.exe" },
-  -- cmd = { "path/ocamllsp.exe" },
-  manual_install = true,
+  cmd = { "ocamllsp" },
   settings = {
     codelens = { enable = true },
     inlayHints = { enable = true },

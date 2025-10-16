@@ -11,7 +11,7 @@ opt.colorcolumn = "80"
 opt.scrolloff = 6
 
 opt.foldenable = false
-opt.foldmethod = 'manual'
+opt.foldmethod = "manual"
 opt.foldlevelstart = 99
 
 opt.tabstop = 4

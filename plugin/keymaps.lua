@@ -15,8 +15,6 @@ set("n", "J", "mzJ`z")
 set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
 
-set("v", "<leader>e", ":lua<cr>")
-
 -- think about these
 -- set("n", "<M-j>", function()
 --   if vim.opt.diff:get() then
@@ -69,7 +67,8 @@ set("n", "<leader>o", ':e <C-R>=expand("%:p:h") . "/" <cr>')
 set("n", "<M-l>", "<cmd>silent nohlsearch<cr>")
 
 set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
--- set("n", "<leader>x", "<cmd>silent !chmod +x %<CR>", { silent = true })
+set("n", "<leader>x", "<cmd>silent !chmod +x %<CR>", { silent = true })
+set("n", "<C-f", "<cmd>silent !tmux neww tmuxs<CR>");
 
 set("n", "<leader>move", '<cmd>cd <C-R>=expand("%:h")<cr> && echo move', { desc = "cd to %:h" })
 
