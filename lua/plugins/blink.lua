@@ -8,7 +8,8 @@ return {
       keymap = {
         preset = "default",
         -- windows eats <C-Space>
-        ["<C-Bslash>"] = require("util").is_windows and { "show", "show_documentation", "hide_documentation" } or nil,
+        -- just always do this because now I have muscle memory
+        ["<C-Bslash>"] = { "show", "show_documentation", "hide_documentation" },
       },
       appearance = {
         use_nvim_cmp_as_default = false,
