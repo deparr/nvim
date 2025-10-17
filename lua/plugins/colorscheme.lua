@@ -1,9 +1,9 @@
 -- highlight-groups group-name -> syntax.txt
 return {
   {
-    -- "deparr/tairiki.nvim",
+    "deparr/tairiki.nvim",
     lazy = false,
-    dir = require("util").dev "deparr/tairiki.nvim",
+    -- dir = require("util").dev "deparr/tairiki.nvim",
     -- config = function()end,
     -- priority = 1000,
     -- config = false,
