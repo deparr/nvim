@@ -8,8 +8,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
-vim.keymap.set("t", "<S-Space>", "<Space>")
-vim.keymap.set("t", "<C-Space>", "<Space>")
+-- vim.keymap.set("t", "<S-Space>", "<Space>") -- why did I do this anyway ??
+-- vim.keymap.set("t", "<C-Space>", "<Space>") -- this one too
 
 vim.keymap.set("n", "<leader>tt", "<cmd>tabnew | term<cr>")
 vim.keymap.set("n", "<leader>ts", function()

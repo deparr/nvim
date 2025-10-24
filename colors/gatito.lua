@@ -5,6 +5,7 @@ end
 
 vim.o.termguicolors = true
 vim.g.colors_name = "gatito"
+vim.o.bg = "dark"
 
 local p = {
   -- fg = "#d4d4d4",
@@ -75,7 +76,7 @@ hl("MsgArea", {})
 hl("MsgSeparator", { bg = p.black })
 hl("MoreMsg", { fg = p.sat_purple })
 hl("NonText", {})
-hl("Normal", { fg = p.fg })
+hl("Normal", { fg = p.fg, bg = p.bg })
 hl("NormalFloat", { fg = p.fg, bg = p.zero }) -- TODO zero bg
 hl("FloatBorder", {})
 hl("FloatTitle", {})

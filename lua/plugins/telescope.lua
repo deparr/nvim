@@ -5,6 +5,7 @@ return {
     dependencies = {
       { "nvim-lua/plenary.nvim" },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      { "nvim-telescope/telescope-ui-select.nvim" },
       -- { "natecraddock/telescope-zf-native.nvim" },
     },
     config = function()
@@ -21,6 +22,9 @@ return {
             override_file_sorter = true,
             case_mode = "smart_case",
           },
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown {},
+          },
           -- ["zf-native"] = {
           --   file = {
           --     match_filename = false,
@@ -29,6 +33,7 @@ return {
         },
       }
       ts.load_extension "fzf"
+      ts.load_extension "ui-select"
       -- ts.load_extension "zf-native"
     end,
     keys = function()

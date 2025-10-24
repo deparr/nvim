@@ -68,7 +68,9 @@ if vim.g.neovide then
   end
 end
 
+
 -- require("tairiki").load()
 vim.cmd.colorscheme "alacritty"
+-- vim.o.winborder = "rounded" -- if using light theme
 require("dpar.godot")
 require("dpar.godot/editor")
