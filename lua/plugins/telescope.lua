@@ -12,9 +12,9 @@ return {
       local ts = require "telescope"
       ts.setup {
         -- windows eats <C-Space>
-        pickers = require("util").is_windows and {
+        pickers = {
           live_grep = { mappings = { i = { ["<C-BSlash>"] = "to_fuzzy_refine" } } },
-        } or nil,
+        },
         extensions = {
           fzf = {
             fuzzy = true,
