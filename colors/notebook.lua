@@ -63,6 +63,7 @@ local c = {
   muted_blue = "#445588",
   blue = "#000080",
   bright_blue = "#2156a5",
+  bright_blue2 = "#1561b8",
   green = "#008000",
   muted_cyan = "#3c5d5d",
   cyan = "#008080",
@@ -103,7 +104,7 @@ hl("DiffText", { bg = c.diff_yellow })
 hl("Directory", { fg = c.off_cyan, bold = true  })
 hl("EndOfBuffer", { fg = c.bg, bg = c.bg })
 hl("ErrorMsg", { fg = c.red, bold = true })
-hl("FloatBorder", { fg = c.fg_light2 })
+hl("FloatBorder", { fg = c.fg_light })
 hl("FloatFooter", "FloatTitle")
 hl("FloatTitle", { fg = c.fg, bold = true })
 hl("FoldColumn", { fg = c.fg_light })
@@ -112,7 +113,7 @@ hl("IncSearch", { fg = c.fg, bg = c.yellow })
 hl("LineNr", { fg = c.fg_light })
 hl("LineNrAbove", "LineNr")
 hl("LineNrBelow", "LineNr")
-hl("MatchParen", { bold = true })
+hl("MatchParen", { bg = c.yellow, bold = true })
 hl("ModeMsg", { fg = c.fg, bold = true })
 hl("MoreMsg", { fg = c.fg, bold = true })
 hl("MsgArea", { fg = c.fg })
@@ -185,10 +186,11 @@ hl("Identifier", { fg = c.fg })
 hl("Ignore", { fg = c.fg_light })
 hl("Include", { fg = c.fg, bold = true })
 hl("Italic", { italic = true })
-hl("Keyword", { fg = c.fg, bold = true })
+hl("Keyword", { fg = "#000000", bold = true })
 hl("Label", { fg = c.muted_cyan }) -- todo
 hl("Macro", { fg = c.muted_cyan })
-hl("Number", { fg = c.bright_cyan })
+-- hl("Number", { fg = c.bright_cyan })
+hl("Number", { fg = c.bright_blue })
 hl("Operator", { fg = c.fg })
 hl("PreCondit", { fg = c.orange })
 hl("PreProc", { fg = c.fg })
@@ -249,7 +251,7 @@ hl("@constant", "Constant")
 hl("@constant.builtin", { fg = c.muted_red, bold = true })
 hl("@constant.macro", { fg = c.fg })
 hl("@module", {})
-hl("@module.builtin", { bg = c.todo });
+hl("@module.builtin", { fg = c.muted_cyan });
 hl("@label", "Label")
 hl("@string", "String")
 hl("@string.documentation", "@comment.documentation")
@@ -286,7 +288,7 @@ hl("@keyword", "Keyword")
 -- .directive .directive.define
 hl("@punctuation", { fg = c.fg })
 -- .delimiter .bracket
-hl("@punctuation.special")
+hl("@punctuation.special", { fg = c.fg, bold = true })
 hl("@comment", "Comment")
 hl("@comment.documentation", "Comment")
 hl("@comment.error", "DiagnosticError")
@@ -323,4 +325,13 @@ hl("@string.typst", { fg = c.green })
 hl("@label.vimdoc", { fg = c.fg, bold = true })
 hl("@markup.link.vimdoc", { fg = c.bright_blue, bold = true })
 
+hl("BlinkCmpGhostText", "Comment")
+
 hl("LazySpecial", { fg = c.bright_blue })
+
+hl("TelescopeMatching", { fg = c.muted_red, bold = true } )
+hl("TelescopeMultiIcon", { fg = c.fg, bold = true })
+hl("TelescopeMultiSelection", { fg = c.bright_blue })
+hl("TelescopePromptPrefix", { fg = c.fg, bold = true })
+hl("TelescopeSelectionCaret", { fg = c.fg, bg = c.fg_light2, bold = true })
+hl("TelescopeTitle", { fg = c.orange, bold = true })

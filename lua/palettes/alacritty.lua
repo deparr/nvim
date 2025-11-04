@@ -2,7 +2,8 @@ local util = require "tairiki.util"
 
 local M = {
   -- fg = "#d8d8d8",
-  fg = "#d0d0d0",
+  -- fg = "#d0d0d0",
+  fg = "#c8c8c8",
   bg = "#262626",
 
   bright_white = "#f8f8f8",
@@ -94,7 +95,7 @@ function M.regen_sub_groups(self)
     FloatTitle = { fg = self.fg, bg = "#000000", bold = true },
     FloatBorder = { fg = self.fg_dark, bg = "#000000" },
     Debug = { fg = self.red },
-    Character = { fg = self.bright_green },
+    Character = { fg = self.yellow },
     Comment = { fg = self.comment },
     Label = { fg = self.cyan },
     MatchParen = { fg = self.bright_orange },
@@ -113,6 +114,7 @@ function M.regen_sub_groups(self)
     ["@conceal"] = { fg = self.fg_dark },
     ["@constructor.lua"] = { fg = self.fg },
     ["@comment.documentation"] = { fg = self.doc_comment },
+    ["@function.builtin"] = { fg = self.bright_blue },
     ["@label"] = "Label",
     ["@markup.heading.1"] = { fg = self.bright_red },
     ["@markup.heading.2"] = { fg = self.orange },
@@ -129,13 +131,16 @@ function M.regen_sub_groups(self)
     ["@type"] = "Type",
     ["@type.builtin"] = "@type",
 
-    ["@type.builtin.gdshader"] = { fg = self.green },
+    ["@function.builtin.lua"] = "Function",
+
+    ["@function.builtin.go"] = "Function",
 
     ["@punctuation.special.python"] = { fg = self.orange },
 
     ["@punctuation.special.bash"] = { fg = self.orange },
 
-    ["@keyword.import.zig"] = "@function.builtin",
+    ["@keyword.import.zig"] = "Function",
+    ["@function.builtin.zig"] = "Function",
 
     ["@lsp.type.lifetime.rust"] = { fg = self.bright_green },
 

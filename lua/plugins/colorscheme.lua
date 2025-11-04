@@ -45,25 +45,13 @@ return {
       }
     end,
   },
-  -- { "chriskempson/vim-tomorrow-theme" },
   {
-    "sainnhe/sonokai",
-    config = function() -- if you actually use this, rewrite as a real theme
-      vim.api.nvim_create_autocmd("ColorScheme", {
-        pattern = "sonokai",
-        callback = function(ev)
-          vim.o.termguicolors = false
-          vim.api.nvim_set_hl(0, "VertSplit", { ctermfg = 240 })
-          vim.api.nvim_set_hl(0, "MatchParen", { ctermfg = 176, ctermbg = 237, bold = true })
-        end,
-      })
-    end,
+    dir = require("util").dev "deparr/scuffed-sonokai",
+    opts = { better_diff_colors = true, match_paren_color = "purple", high_contrast_win_separator = true },
   },
+  { "sainnhe/sonokai", },
   { "ribru17/bamboo.nvim" },
-  -- { "rebelot/kanagawa.nvim"},
   { "folke/tokyonight.nvim" },
+  -- { "rebelot/kanagawa.nvim"},
   -- { "nyoom-engineering/oxocarbon.nvim" },
-  { "Verf/deepwhite.nvim" },
-  { "yorickpeterse/vim-paper" },
-  { "yorickpeterse/nvim-grey" },
 }
