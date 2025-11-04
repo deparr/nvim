@@ -3,6 +3,7 @@ vim.lsp.enable({
   "gdscript",
   "gopls",
   "vtsls",
+  -- "tsgo",
   "zls",
   -- "rust-analyzer",
 })
@@ -11,6 +12,7 @@ local disable_semantic_tokens = {
   lua = true,
   zig = true, -- set in zls.json OR lsp/zls.lua
   -- rust = true,
+  python = true, -- todo there should be a way to do this in pyright settings
 }
 
 vim.api.nvim_create_autocmd("LspAttach", {
