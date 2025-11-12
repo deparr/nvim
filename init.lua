@@ -63,14 +63,18 @@ if vim.g.neovide then
     { desc = "zoom out" }
   )
   vim.keymap.set("n", "<c-0>", "<cmd>lua vim.g.neovide_scale_factor = 1.0<cr>", { desc = "reset zoom" })
-  if vim.fn.getcwd() == "V:\\.local\\bin" then
+  if vim.fn.getcwd() == "V:\\.local\\bin" or vim.fn.getcwd() == "C:\\Program Files\\Neovide" then
     vim.cmd.cd "V:/dev"
   end
+
+  -- this does recursive loading
+  -- require("util").set_term_colors(require("palettes.alacritty").terminal)
 end
 
 -- require("tairiki").load()
 vim.cmd.colorscheme "alacritty"
--- vim.o.winborder = "rounded" -- if using light theme
+-- vim.cmd.colorscheme "notebook"
+vim.o.winborder = vim.o.background == "light" and "rounded" or "none"
 if require("util").in_gdproj then
   require "dpar.godot"
   require "dpar.godot/editor"

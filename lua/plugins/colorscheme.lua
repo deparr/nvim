@@ -48,6 +48,7 @@ return {
     dir = require("util").dev "deparr/scuffed-sonokai",
     opts = { better_diff_colors = true, match_paren_color = "purple", high_contrast_win_separator = true },
   },
+  { "killitar/obscure.nvim" },
   { "sainnhe/sonokai" },
   { "ribru17/bamboo.nvim" },
   { "folke/tokyonight.nvim" },
