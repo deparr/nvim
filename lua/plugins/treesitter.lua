@@ -1,54 +1,50 @@
 return {
   {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
+    opts = {
+      select = {
+        lookahead = true,
+      },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     branch = "main",
-    dependencies = {
-      -- { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
-    },
+    dependencies = {},
     build = ":TSUpdate",
     config = function()
-      -- all of these options aren't implemented yet on main
-      -- require("nvim-treesitter.config").setup {
-      --   ensure_installed = {
-      --     "vimdoc",
-      --     "lua",
-      --     "vim",
-      --     "bash",
-      --     "c",
-      --     "go",
-      --     "javascript",
-      --     "zig",
-      --     "gdscript",
-      --     "python",
-      --   },
-      --   highlight = {
-      --     enable = true,
-      --     disable = { "rust" },
-      --   },
-      --   textobjects = {
-      --     select = {
-      --       enable = true,
-      --       lookahead = true,
-      --       keymaps = {
-      --         ["af"] = "@function.outer",
-      --         ["if"] = "@function.inner",
-      --         ["ai"] = "@conditional.outer",
-      --         ["ii"] = "@conditional.inner",
-      --         ["ab"] = "@block.outer",
-      --         ["ib"] = "@block.inner",
-      --         ["aa"] = "@parameter.outer",
-      --         ["ia"] = "@parameter.inner",
-      --       },
-      --       include_surrounding_whitespace = false,
-      --     },
-      --   },
-      -- }
-      -- if require("util").is_windows then
-      --   require("nvim-treesitter.install").compilers = { "zig", "gcc" }
-      -- end
-      --
-      -- require("nvim-treesitter.install").prefer_git = false
+      -- ensure these are installed
+      -- stylua: ignore
+      require("nvim-treesitter").install {
+        "go", "zig", "typescript", "tsx", "javascript", "markdown",
+        "markdown_inline", "gdscript", "gdshader", "hlsl", "glsl",
+        "python", "djot", "gomod", "gosum", "lua", "vimdoc",
+      }
+
+      local function textobj_map(key, query)
+        local qbase = "@" .. query
+        local outer = qbase .. ".outer"
+        local inner = qbase .. ".inner"
+        local opts = {
+          desc = "TexObj select for @" .. query,
+          silent = true,
+        }
+        vim.keymap.set({ "x", "o" }, "i" .. key, function()
+          require("nvim-treesitter-textobjects.select").select_textobject(inner)
+        end, opts)
+        vim.keymap.set({ "x", "o" }, "a" .. key, function()
+          require("nvim-treesitter-textobjects.select").select_textobject(outer)
+        end, opts)
+      end
+
+      textobj_map("f", "function")
+      textobj_map("F", "call")
+      textobj_map("c", "conditional")
+      textobj_map("L", "loop")
+      textobj_map("a", "parameter")
+      textobj_map("r", "return")
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "*" },

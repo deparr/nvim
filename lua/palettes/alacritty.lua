@@ -91,9 +91,14 @@ function M.regen_sub_groups(self)
 
   self.highlights = {
     Identifier = { fg = self.orange },
+    --   zero black float
     NormalFloat = { bg = "#000000" },
-    FloatTitle = { fg = self.fg, bg = "#000000", bold = true },
+    FloatTitle = { fg = self.fg, bg = "#000000" },
     FloatBorder = { fg = self.fg_dark, bg = "#000000" },
+    --   transparent float (needs winborder)
+    -- NormalFloat = { bg = self.none },
+    -- FloatTitle = { fg = self.orange, bg = self.none },
+    -- FloatBorder = { fg = self.fg_dark},
     Debug = { fg = self.red },
     Character = { fg = self.yellow },
     Comment = { fg = self.comment },
@@ -127,7 +132,8 @@ function M.regen_sub_groups(self)
     ["@markup.raw"] = { fg = self.green },
     ["@module"] = { fg = self.fg },
     ["@tag"] = { fg = self.blue },
-    ["@tag.attribute"] = { fg = self.cyan },
+    ["@tag.attribute"] = { fg = self.fg },
+    ["@tag.builtin"] = { fg = util.blend(self.red, self.yellow, 0.6) },
     ["@type"] = "Type",
     ["@type.builtin"] = "@type",
 
@@ -138,6 +144,12 @@ function M.regen_sub_groups(self)
     ["@punctuation.special.python"] = { fg = self.orange },
 
     ["@punctuation.special.bash"] = { fg = self.orange },
+
+    ["@punctuation.special.jsx"] = { fg = self.orange },
+    ["@punctuation.special.javascript"] = { fg = self.orange },
+
+    ["@punctuation.special.tsx"] = { fg = self.orange },
+    ["@punctuation.special.typescript"] = { fg = self.orange },
 
     ["@keyword.import.zig"] = "Function",
     ["@function.builtin.zig"] = "Function",

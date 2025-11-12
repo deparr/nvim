@@ -56,10 +56,6 @@ set("n", "<A-,>", "<C-W>5<")
 set("n", "<A-.>", "<C-W>5>")
 set("n", "<A-->", "<C-W>5-")
 set("n", "<A-=>", "<C-W>5+")
--- set("n", "<C-h>", "<C-W><C-h>")
--- set("n", "<C-j>", "<C-W><C-j>")
--- set("n", "<C-k>", "<C-W><C-k>")
--- set("n", "<C-l>", "<C-W><C-l>")
 
 -- open new file adjacent to current file
 set("n", "<leader>o", ':e <C-R>=expand("%:p:h") . "/" <cr>')
@@ -68,11 +64,10 @@ set("n", "<M-l>", "<cmd>silent nohlsearch<cr>")
 
 set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 set("n", "<leader>x", "<cmd>silent !chmod +x %<CR>", { silent = true })
-set("n", "<C-f", "<cmd>silent !tmux neww tmuxs<CR>");
+set("n", "<C-f>", "<cmd>silent !tmux popup tmuxs<CR>");
 
-set("n", "<leader>move", '<cmd>cd <C-R>=expand("%:h")<cr> && echo move', { desc = "cd to %:h" })
+-- set("n", "<leader>fp", '<cmd>lua vim.fn.setreg("+", string.format("%s:%d", vim.fn.expand("%"), vim.fn.line(".")))<CR>')
 
-set("n", "<leader>i", "<cmd>Inspect<cr>")
 set("x", "<leader>e", function()
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, false, true), "x", false)
   local _, rs, cs = unpack(vim.fn.getpos "'<")

@@ -17,6 +17,8 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+require("vim._extui").enable { enable = true }
+
 require("lazy").setup("plugins", {
   defaults = { lazy = false },
   change_detection = { enabled = true, notify = false },
@@ -35,8 +37,6 @@ require("lazy").setup("plugins", {
     },
   },
 })
-
--- vim.g.is_loaded = function(k) return vim.tbl_filter(function(key) return key:match((".*%s.*"):format(k)) end, vim.tbl_keys(package.loaded)) end
 
 if vim.g.neovide then
   vim.g.neovide_cursor_animation_length = 0.0
@@ -64,13 +64,14 @@ if vim.g.neovide then
   )
   vim.keymap.set("n", "<c-0>", "<cmd>lua vim.g.neovide_scale_factor = 1.0<cr>", { desc = "reset zoom" })
   if vim.fn.getcwd() == "V:\\.local\\bin" then
-    vim.cmd.cd "V:/Code"
+    vim.cmd.cd "V:/dev"
   end
 end
-
 
 -- require("tairiki").load()
 vim.cmd.colorscheme "alacritty"
 -- vim.o.winborder = "rounded" -- if using light theme
-require("dpar.godot")
-require("dpar.godot/editor")
+if require("util").in_gdproj then
+  require "dpar.godot"
+  require "dpar.godot/editor"
+end

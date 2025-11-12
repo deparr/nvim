@@ -121,12 +121,13 @@ return {
         local theme = require("telescope.themes").get_dropdown { layout_config = { height = 25 } }
 
         local project_picker = function(opts)
+          local cmd = { "fd", "--exact-depth", "2", "--type", "d", "--color", "never", "-a", ".", unpack(util.proj_dirs) }
           opts = opts or {}
           pickers
             .new(opts, {
               prompt_title = "Switch Project",
               finder = finders.new_oneshot_job(
-                { "fd", "-d", "1", "-t", "d", "-c", "never", "-a", ".", unpack(util.proj_dirs) },
+                cmd,
                 {}
               ),
               sorter = conf.file_sorter(opts),

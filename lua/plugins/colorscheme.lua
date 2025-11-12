@@ -2,10 +2,8 @@
 return {
   {
     "deparr/tairiki.nvim",
-    lazy = false,
+    lazy = true,
     -- dir = require("util").dev "deparr/tairiki.nvim",
-    -- config = function()end,
-    -- priority = 1000,
     -- config = false,
     config = function()
       require("tairiki.palette").register("gruvbuddy", require "palettes.gruvbuddy")
@@ -34,13 +32,14 @@ return {
           -- hl["@module.ocaml"] = { fg = c.orange }
           -- hl["@label.ocaml"] = { fg = c.yellow }
 
-          hl["@operator.gleam"] = { fg = c.light_purple and c.light_purple or c.purple }
+          hl["@operator.gleam"] = { fg = c.light_purple or c.purple }
 
           hl["@variable.powershell"] = { fg = c.syn.constant }
           hl["@operator.powershell"] = { fg = c.yellow }
 
           -- consider upstream
           hl["@lsp.type.variable"] = {}
+          hl["@variable.member"] = {}
         end,
       }
     end,
@@ -49,7 +48,7 @@ return {
     dir = require("util").dev "deparr/scuffed-sonokai",
     opts = { better_diff_colors = true, match_paren_color = "purple", high_contrast_win_separator = true },
   },
-  { "sainnhe/sonokai", },
+  { "sainnhe/sonokai" },
   { "ribru17/bamboo.nvim" },
   { "folke/tokyonight.nvim" },
   -- { "rebelot/kanagawa.nvim"},

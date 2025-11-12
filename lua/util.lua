@@ -2,19 +2,22 @@
 local M = {}
 
 M.is_windows = vim.uv.os_uname().sysname:match ".*[wW]indows.*" ~= nil
-M.dev_dir = M.is_windows and "V:\\Code" or "~/dev"
+vim.g.is_windows = M.is_windows
+M.dev_dir = vim.env.DEV_ROOT and vim.env.DEV_ROOT or (M.is_windows and "V:\\dev" or "~/dev")
+M.plug_dir = M.dev_dir .. "/deparr"
 M.in_gdproj = vim.fs.root(0, function(n, _)
   return n == "project.godot" or n == ".godot"
 end) ~= nil
 
-M.proj_dirs = M.is_windows and { "V:/Code" } or { "~/dev", "~/build" } -- hmm, duped
+-- default to windows paths since this should only get used in neovide
+M.proj_dirs = { vim.env.DEV_ROOT or "v:\\dev" }
 
 function M.dev(path)
   local si = path:find "/"
   if si then
     path = path:sub(si)
   end
-  return vim.fs.joinpath(M.dev_dir, path)
+  return vim.fs.joinpath(M.plug_dir, path)
 end
 
 function M.dump_highlight_groups(path, cterm_pass_through)
@@ -63,5 +66,12 @@ function M.dump_highlight_groups(path, cterm_pass_through)
   file:close()
   print(("hl_dump: current highlight groups saved to '%s'"):format(path))
 end
+
+function M.is_loaded(k)
+  return vim.tbl_filter(function(key)
+    return key:match((".*%s.*"):format(k))
+  end, vim.tbl_keys(package.loaded))
+end
+vim.g.is_loaded = M.is_loaded
 
 return M
