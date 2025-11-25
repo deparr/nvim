@@ -105,6 +105,7 @@ function M.regen_sub_groups(self)
     Label = { fg = self.cyan },
     MatchParen = { fg = self.bright_orange },
     Macro = { fg = self.bright_red },
+    MsgSeparator = { fg = self.none, bg = self.bg_light },
     NonText = "Comment",
     PreProc = { fg = self.purple },
     SpecialKey = "Comment",

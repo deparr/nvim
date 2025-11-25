@@ -31,8 +31,8 @@ return {
   {
     "tpope/vim-fugitive",
     keys = {
-      { "<leader>gs", "<cmd>vert Git<cr>" },
-      { "<leader>gl", "<cmd>vert Git log<cr>" },
+      { "<leader>gs", "<cmd>vert topleft Git<cr>" },
+      { "<leader>gl", "<cmd>vert topleft Git log<cr>" },
     },
   },
 }

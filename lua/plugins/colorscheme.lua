@@ -6,8 +6,8 @@ return {
     -- dir = require("util").dev "deparr/tairiki.nvim",
     -- config = false,
     config = function()
-      require("tairiki.palette").register("gruvbuddy", require "palettes.gruvbuddy")
-      require("tairiki.palette").register("gruvbox", require "palettes.gruvbox")
+      -- require("tairiki.palette").register("gruvbuddy", require "palettes.gruvbuddy")
+      -- require("tairiki.palette").register("gruvbox", require "palettes.gruvbox")
       require("tairiki.palette").register("alacritty", require "palettes.alacritty")
       require("tairiki").setup {
         palette = "alacritty",
@@ -48,7 +48,7 @@ return {
     dir = require("util").dev "deparr/scuffed-sonokai",
     opts = { better_diff_colors = true, match_paren_color = "purple", high_contrast_win_separator = true },
   },
-  { "killitar/obscure.nvim" },
+  { "killitar/obscure.nvim", opts = { styles = { keywords = { italic = false } } } },
   { "sainnhe/sonokai" },
   { "ribru17/bamboo.nvim" },
   { "folke/tokyonight.nvim" },
