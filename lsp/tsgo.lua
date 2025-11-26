@@ -1,18 +1,12 @@
 return {
-  cmd = { "bun", "tsgo", "--lsp", "-stdio" },
+  cmd = { "bun", "x", "--bun", "tsgo", "--lsp", "-stdio" },
 
   filetypes = {
-
     "javascript",
-
     "javascriptreact",
-
     "javascript.jsx",
-
     "typescript",
-
     "typescriptreact",
-
     "typescript.tsx",
   },
 

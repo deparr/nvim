@@ -2,8 +2,8 @@ vim.lsp.enable({
   "lua_ls",
   "gdscript",
   "gopls",
-  "vtsls",
-  -- "tsgo",
+  -- "vtsls",
+  "tsgo",
   "zls",
   -- "rust-analyzer",
 })
