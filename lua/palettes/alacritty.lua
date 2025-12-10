@@ -92,9 +92,9 @@ function M.regen_sub_groups(self)
   self.highlights = {
     Identifier = { fg = self.orange },
     --   zero black float
-    NormalFloat = { bg = "#000000" },
-    FloatTitle = { fg = self.fg, bg = "#000000" },
-    FloatBorder = { fg = self.fg_dark, bg = "#000000" },
+    NormalFloat = { bg = "#303030" },
+    FloatTitle = { fg = self.fg, bg = "#303030" },
+    FloatBorder = { fg = self.fg_dark, bg = "#303030" },
     --   transparent float (needs winborder)
     -- NormalFloat = { bg = self.none },
     -- FloatTitle = { fg = self.orange, bg = self.none },

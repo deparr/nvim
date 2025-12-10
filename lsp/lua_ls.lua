@@ -11,4 +11,11 @@ return {
     "selene.toml",
     "selene.yml",
   },
+  settings = {
+    Lua = {
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
 }

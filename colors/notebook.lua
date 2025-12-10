@@ -242,7 +242,7 @@ hl("diffLine", { fg = c.fg })
 
 
 -- == Treesitter == :h treesitter-highlight-groups
-hl("@variable", {})
+hl("@variable", { fg = c.fg })
 hl("@variable.builtin", {})
 hl("@variable.parameter", {})
 hl("@variable.parameter.builtin", {})
