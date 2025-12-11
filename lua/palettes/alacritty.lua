@@ -115,6 +115,8 @@ function M.regen_sub_groups(self)
     Tag = { fg = self.yellow },
     Todo = { fg = self.yellow },
 
+    LazyButtonActive = { fg = self.none, bg = self.bg },
+
     -- TODO PreProc
     ["@character"] = "Character",
     ["@conceal"] = { fg = self.fg_dark },
