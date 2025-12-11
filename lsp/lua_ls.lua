@@ -13,6 +13,11 @@ return {
   },
   settings = {
     Lua = {
+      workspace = {
+        library = {
+          vim.fn.expand "~/.local/share/prise/lua",
+        },
+      },
       telemetry = {
         enable = false,
       },
