@@ -11,16 +11,19 @@ local M = {
   gray = "#6b6b6b",
   black = "#323232",
 
-  red = "#ac4242",
+  dark_red = "#ac4242",
+
+  red = "#c55555",
   green = "#90a959",
   yellow = "#f4bf75",
   -- yellow = "#e5c07b", -- onedark yellow
   blue = "#6a9fb5",
   purple = "#aa759f",
   cyan = "#75b5aa",
+  -- cyan = "#58b090", -- more green cyan
   orange = "#cc7f40",
 
-  bright_red = "#c55555",
+  bright_red = "#d74a4c", -- more red bamboo red
   bright_green = "#aac474",
   bright_yellow = "#feca88",
   bright_blue = "#82b8c8",
@@ -42,7 +45,7 @@ M.fg_dark3 = M.gray
 
 function M.regen_sub_groups(self)
   self.diag = {
-    error = self.red,
+    error = self.bright_red,
     info = self.fg_dark3,
     warn = self.orange,
     hint = self.fg_dark3,
@@ -56,7 +59,7 @@ function M.regen_sub_groups(self)
   }
   self.syn = {
     ident = self.fg,
-    constant = self.orange,
+    constant = self.fg,
     literal = self.orange,
     func = self.blue,
     string = self.yellow,
@@ -82,7 +85,7 @@ function M.regen_sub_groups(self)
     bright_black = self.gray,
     bright_red = self.bright_red,
     bright_green = self.bright_green,
-    bright_yellow = self.bright_yellow,
+    bright_yellow = self.yellow,
     bright_blue = self.bright_blue,
     bright_purple = self.bright_purple,
     bright_cyan = self.bright_cyan,
@@ -104,7 +107,7 @@ function M.regen_sub_groups(self)
     Comment = { fg = self.comment },
     Label = { fg = self.cyan },
     MatchParen = { fg = self.bright_orange },
-    Macro = { fg = self.bright_red },
+    Macro = { fg = self.red },
     MsgSeparator = { fg = self.none, bg = self.bg_light },
     NonText = "Comment",
     PreProc = { fg = self.purple },
@@ -120,11 +123,13 @@ function M.regen_sub_groups(self)
     -- TODO PreProc
     ["@character"] = "Character",
     ["@conceal"] = { fg = self.fg_dark },
-    ["@constructor.lua"] = { fg = self.fg },
+    ["@constant.builtin"] = { fg = self.orange },
+    ["@constant.macro"] = "Constant",
+    ["@constructor"] = { fg = self.bright_blue },
     ["@comment.documentation"] = { fg = self.doc_comment },
-    ["@function.builtin"] = { fg = self.bright_blue },
+    ["@function.builtin"] = "Function",
     ["@label"] = "Label",
-    ["@markup.heading.1"] = { fg = self.bright_red },
+    ["@markup.heading.1"] = { fg = self.red },
     ["@markup.heading.2"] = { fg = self.orange },
     ["@markup.heading.3"] = { fg = self.yellow },
     ["@markup.heading.4"] = { fg = self.green },
@@ -139,7 +144,11 @@ function M.regen_sub_groups(self)
     ["@tag.builtin"] = { fg = util.blend(self.red, self.yellow, 0.6) },
     ["@type"] = "Type",
     ["@type.builtin"] = "@type",
+    -- dont like this but also dont like the bright green
+    -- ["@variable.builtin"] = { fg = self.fg, bold = true },
+    -- ["@variable.builtin"] = { fg = self.bright_red },
 
+    ["@constructor.lua"] = { fg = self.fg },
     ["@function.builtin.lua"] = "Function",
 
     ["@function.builtin.go"] = "Function",
@@ -154,6 +163,8 @@ function M.regen_sub_groups(self)
     ["@punctuation.special.tsx"] = { fg = self.orange },
     ["@punctuation.special.typescript"] = { fg = self.orange },
 
+    -- gonna try plain constants for now
+    -- ["@constant.zig"] = { fg = self.orange },
     ["@keyword.import.zig"] = "Function",
     ["@function.builtin.zig"] = "Function",
 

@@ -1,4 +1,4 @@
-vim.api.nvim_create_user_command("GodotOpen", function(ctx)
+vim.api.nvim_create_user_command("GodotEdit", function(ctx)
   local file_name_abs = ctx.fargs[1]
   local file_name = vim.fn.fnamemodify(file_name_abs, ":p:.")
   local file_line = tonumber(ctx.fargs[2])

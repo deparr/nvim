@@ -51,7 +51,8 @@ return {
   { "killitar/obscure.nvim", opts = { styles = { keywords = { italic = false } } } },
   { "sainnhe/sonokai" },
   { "ribru17/bamboo.nvim" },
-  { "folke/tokyonight.nvim" },
+  { "jnz/studio98" },
+  { "oskarnurm/koda.nvim" },
   -- { "rebelot/kanagawa.nvim"},
   -- { "nyoom-engineering/oxocarbon.nvim" },
 }

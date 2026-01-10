@@ -15,13 +15,13 @@ return {
     dependencies = {},
     build = ":TSUpdate",
     config = function()
-      -- ensure these are installed
       -- stylua: ignore
-      require("nvim-treesitter").install {
+      local ensure_installed = {
         "go", "zig", "typescript", "tsx", "javascript", "markdown",
         "markdown_inline", "gdscript", "gdshader", "hlsl", "glsl",
         "python", "djot", "gomod", "gosum", "lua", "vimdoc",
       }
+      require("nvim-treesitter").install(ensure_installed)
 
       local function textobj_map(key, query)
         local qbase = "@" .. query
@@ -46,15 +46,12 @@ return {
       textobj_map("a", "parameter")
       textobj_map("r", "return")
 
+      local installed_fts = vim.iter(ensure_installed):map(vim.treesitter.language.get_filetypes):flatten():totable()
+
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "*" },
+        pattern = installed_fts,
         callback = function(ev)
-          if
-            vim.list_contains(require("nvim-treesitter").get_installed(), ev.match)
-            or ev.match == "typescriptreact"
-          then
-            vim.treesitter.start()
-          end
+          vim.treesitter.start(ev.buf)
         end,
       })
     end,

@@ -6,7 +6,6 @@ return {
     ".clang-tidy",
     ".clang-format",
     "compile_commands.json",
-    ".git",
   },
   capabilities = {
     textDocument = {

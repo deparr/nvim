@@ -1,5 +1,6 @@
 vim.lsp.enable({
-  "lua_ls",
+  -- "lua_ls",
+  "emmylua_ls",
   "gdscript",
   "gopls",
   "vtsls",
@@ -14,6 +15,7 @@ local disable_semantic_tokens = {
   -- rust = true,
   python = true, -- todo there should be a way to do this in pyright settings
 }
+
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
