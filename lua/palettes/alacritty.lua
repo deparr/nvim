@@ -3,7 +3,8 @@ local util = require "tairiki.util"
 local M = {
   -- fg = "#d8d8d8",
   -- fg = "#d0d0d0",
-  fg = "#c8c8c8",
+  -- fg = "#c8c8c8",
+  fg = "#bcbcbc", -- scuffed-sonokai fg
   bg = "#262626",
 
   bright_white = "#f8f8f8",
@@ -24,9 +25,11 @@ local M = {
   orange = "#cc7f40",
 
   bright_red = "#d74a4c", -- more red bamboo red
-  bright_green = "#aac474",
+  bright_green = "#aac474", -- orig
+  -- bright_green = "#90c270", -- slight desat
   bright_yellow = "#feca88",
-  bright_blue = "#82b8c8",
+  -- bright_blue = "#82b8c8", -- orig
+  bright_blue = "#56acd1", -- more sat
   bright_purple = "#c28cb8",
   bright_cyan = "#93d3c3",
   bright_orange = "#ffaa51",

@@ -35,6 +35,7 @@ require("lazy").setup("plugins", {
         "netrwPlugin",
         "tarPlugin",
         "zipPlugin",
+        require("util").is_windows and "man" or nil,
       },
     },
   },
@@ -72,6 +73,12 @@ if vim.g.neovide then
   -- this does recursive loading
   -- require("util").set_term_colors(require("palettes.alacritty").terminal)
 end
+
+-- vim.keymap.set("n", "<leader>r", function()
+--   package.loaded["palettes.alacritty"] = nil
+--   vim.cmd "Lazy reload tairiki.nvim"
+--   require("tairiki.dump").colors_file("alacritty", { palette = "alacritty" })
+-- end)
 
 -- require("tairiki").load()
 vim.cmd.colorscheme "alacritty"

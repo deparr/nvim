@@ -1,4 +1,5 @@
 local M = {}
+local godot_bin = require("util").is_windows and "godot_console" or "godot"
 
 local api = vim.api
 
@@ -21,7 +22,7 @@ api.nvim_create_user_command("GodotRun", function(ctx)
     api.nvim_set_current_win(winnr)
   end
   api.nvim_win_set_buf(winnr, bufnr)
-  vim.fn.termopen { "godot", "." }
+  vim.fn.termopen { "godot_console", "." }
   vim.bo.filetype = "godot-console"
   api.nvim_set_option_value("scrolloff", 999, { win = winnr, scope = "local" })
   vim.cmd "startinsert"
@@ -46,7 +47,7 @@ end
 function M.reload()
   package.loaded["dpar.godot"] = nil
   api.nvim_del_user_command "GodotRun"
-  api.nvim_del_user_command "GodotStop"
+  -- api.nvim_del_user_command "GodotStop"
   require "dpar.godot"
   vim.notify "reloaded godot"
 end
@@ -59,4 +60,3 @@ end
 vim.g.gdkeymaps = true
 
 return M
-

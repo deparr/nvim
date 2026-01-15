@@ -1,62 +1,84 @@
+--[[ matklad css
+.hl-keyword, .hl-literal {
+  color: #000000;
+  font-weight: bold;
+}
+.hl-type {
+  color: #0086b3;
+}
+.hl-tag {
+  color: #000080;
+}
+.hl-title.function_ {
+  color: #990000;
+  font-weight: bold;
+}
+.hl-title.class_ {
+  color: #445588;
+  font-weight: bold;
+}
+.hl-comment {
+  color: #008000;
+  font-style: italic;
+}
+.hl-built_in, .hl-meta {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+.hl-number {
+  color: #009999;
+}
+.hl-string {
+  color: #d14;
+}
+.hl-output {
+  color: #2156a5;
+}
+.hl-subst {
+  color: rgba(0, 0, 0, 0.9);
+}
+.hl-attr, .hl-symbol {
+  color: #008080;
+}
+.hl-line {
+  background-color: #ffc;
+}
+--]]
+
 vim.o.bg = "light"
 
 vim.cmd "hi clear"
 
 vim.g.colors_name = "notebook"
+
 local c = {
-  base1 = "#595855",
-  base2 = "#807E79",
-  base3 = "#999791",
-  base4 = "#B3B1AD",
-  base5 = "#CCCBC6",
-  base6 = "#E6E4DF",
-  base7 = "#FAF2EB",
-
-  light_orange = "#FAE1C8",
-  light_yellow = "#f9eab3",
-  light_cyan = "#C8FAFA",
-  light_green = "#d4fad4",
-  light_blue = "#D4D4FA",
-  light_purple = "#EDD4FA",
-  light_pink = "#FAD4ED",
-  light_red = "#fad4d4",
-
-  deep_red = "#A60000",
-
-  bright_blue = "#005fd7", -- nice, high contrast
-
-  rep_blue = "#365987",
-  rep_green = "#3fa66f",
-
-  fg = "#1a1919",
+  fg = "#101010",
   fg_light = "#484848",
-  fg_light2 = "#cccbc6",
-  bg = "#faf4ef",
-  bg_dark = "#e6e4df",
+  fg_light2 = "#cccccc",
+  bg = "#f2f2f2",
+  bg_dark = "#e6e6e6",
 
-  red = "#990000",
-  blue = "#0000A6",
+  muted_red = "#990000",
+  red = "#dd1144",
+  muted_blue = "#445588",
+  blue = "#000080",
+  bright_blue = "#2156a5",
+  bright_blue2 = "#1561b8",
   green = "#008000",
-  cyan = "#00a6a6",
-  orange = "#F27900",
-  purple = "#6F00A6",
-  pink = "#A6006F",
-  dark_yellow = "#b37f02",
-  orange_red = "#9f4c05",
-  -- dark_yellow = "#6f4c05",
+  muted_cyan = "#3c5d5d",
+  cyan = "#008080",
+  bright_cyan = "#009999",
+  off_cyan = "#0086b3",
+  yellow = "#f9eab3",
+  orange = "#b37f02",
 
   todo = "#ff9920",
 
-  diff_change = "#ececec",
-  none = "NONE",
+  diff_green = "#dfeacc",
+  diff_red = "#edc7c7",
+  diff_yellow = "#f9eab3",
+  diff_change = "#ececec"
 }
-
--- c = setmetatable(c, {
---   __index = function(_, k)
---     vim.print("nil color: " .. k)
---     return nil
---   end,
--- })
 
 local hl = function(group, opts)
   opts = type(opts) == "string" and { link = opts } or opts
@@ -67,20 +89,19 @@ end
 
 hl("ColorColumn", { bg = c.bg_dark })
 hl("Conceal", { fg = c.green })
-hl("CurSearch", { fg = c.fg, bg = c.light_purple })
+hl("CurSearch", { fg = c.fg, bg = c.yellow })
 hl("Cursor", { fg = c.bg, bg = c.fg })
 hl("CursorColumn", { bg = c.bg_dark })
 hl("CursorIM", { fg = c.bg, bg = c.fg })
 hl("CursorLine", { bg = c.bg_dark })
 hl("CursorLineFold", "FoldColumn")
 hl("CursorLineNr", { fg = c.fg, bg = c.bg_dark, bold = true })
-hl("CursorLineSign", { bg = c.bg_dark, bold = true })
-hl("DiffAdd", { bg = c.light_green })
+hl("CursorLineSign",{ bg = c.bg_dark, bold = true })
+hl("DiffAdd", { bg = c.diff_green })
 hl("DiffChange", { bg = c.diff_change })
-hl("DiffDelete", { fg = c.red, bg = c.light_red })
-hl("DiffText", { bg = c.light_yellow })
-hl("DiffTextAdd", { bg = c.light_orange })
-hl("Directory", { fg = c.bright_blue, bold = true })
+hl("DiffDelete", { fg = c.muted_red, bg = c.diff_red })
+hl("DiffText", { bg = c.diff_yellow })
+hl("Directory", { fg = c.off_cyan, bold = true  })
 hl("EndOfBuffer", { fg = c.bg, bg = c.bg })
 hl("ErrorMsg", { fg = c.red, bold = true })
 hl("FloatBorder", { fg = c.fg_light })
@@ -88,11 +109,11 @@ hl("FloatFooter", "FloatTitle")
 hl("FloatTitle", { fg = c.fg, bold = true })
 hl("FoldColumn", { fg = c.fg_light })
 hl("Folded", { fg = c.fg_light, bg = c.bg_dark })
-hl("IncSearch", { fg = c.fg, bg = c.light_purple })
-hl("LineNr", { fg = c.base2 })
+hl("IncSearch", { fg = c.fg, bg = c.yellow })
+hl("LineNr", { fg = c.fg_light })
 hl("LineNrAbove", "LineNr")
 hl("LineNrBelow", "LineNr")
-hl("MatchParen", { bg = c.light_yellow, bold = true })
+hl("MatchParen", { bg = c.yellow, bold = true })
 hl("ModeMsg", { fg = c.fg, bold = true })
 hl("MoreMsg", { fg = c.fg, bold = true })
 hl("MsgArea", { fg = c.fg })
@@ -107,27 +128,27 @@ hl("PmenuExtra", "Pmenu")
 hl("PmenuExtraSel", "PmenuSel")
 hl("PmenuKind", "Pmenu")
 hl("PmenuKindSel", "PmenuSel")
-hl("PmenuMatch", { fg = c.bright_blue, bold = true })
+hl("PmenuMatch", { fg = c.orange, bold = true })
 hl("PmenuMatchSel", { bold = true })
 hl("PmenuSbar", { fg = c.none, bg = c.bg_dark })
 hl("PmenuSel", { bg = c.bg_dark, bold = true })
 hl("PmenuThumb", { fg = c.fg, bg = c.bg_dark })
 hl("Question", { fg = c.fg, bold = true })
 hl("QuickFixLine", { bg = c.bg_dark })
-hl("Search", { fg = c.fg, bg = c.light_yellow })
+hl("Search", { fg = c.fg, bg = c.yellow })
 hl("SignColumn", { fg = c.fg_light })
 hl("SnippetTabstop", "Visual")
-hl("SpecialKey", { fg = c.green })
-hl("SpellBad", { sp = c.red, undercurl = true })
-hl("SpellCap", { sp = c.orange, undercurl = true })
-hl("SpellLocal", { sp = c.bright_blue, undercurl = true })
-hl("SpellRare", { sp = c.cyan, undercurl = true })
-hl("StatusLine", { fg = c.fg, bg = c.bg_dark, bold = true })
+hl("SpecialKey", { fg = c.cyan })
+hl("SpellBad", { sp = c.red, underline = true })
+hl("SpellCap", { sp = c.orange, underline = true })
+hl("SpellLocal", { sp = c.bright_blue, underline = true })
+hl("SpellRare", { sp = c.bright_cyan, underline = true })
+hl("StatusLine", { fg = c.fg, bg = c.bg_dark })
 hl("StatusLineNC", { fg = c.fg, bg = c.bg })
 hl("StatusLineTerm", { fg = c.fg_light, bg = c.bg_dark })
 hl("StatusLineTermNC", { fg = c.fg, bg = c.bg })
-hl("StderrMsg", { fg = c.red })
-hl("StdoutMsg", { fg = c.fg })
+hl("StderrMsg", { fg = c.muted_red });
+hl("StdoutMsg", { fg = c.fg });
 hl("Substitute", "CurSearch")
 hl("TabLine", { fg = c.fg, bg = c.bg_dark })
 hl("TabLineFill", { bg = c.bg_dark })
@@ -137,7 +158,7 @@ hl("TermCursorNC", {})
 hl("Title", { fg = c.fg, bold = true })
 hl("Visual", { bg = c.fg_light2 })
 hl("VisualNOS", "Visual")
-hl("WarningMsg", { fg = c.dark_yellow })
+hl("WarningMsg", { fg = c.orange })
 hl("Whitespace", { fg = c.fg_light })
 hl("WildMenu", "CurSearch")
 hl("WinBar", "StatusLine")
@@ -148,46 +169,47 @@ hl("lCursor", { fg = c.bg, bg = c.fg })
 -- == Neovim Syntax ==
 hl("Added", { fg = c.green })
 hl("Bold", { bold = true })
-hl("Boolean", { fg = c.fg }) -- todo not sure if i like highlighted booleans
+hl("Boolean", { fg = c.fg, bold = true })
 hl("Changed", { fg = c.cyan })
-hl("Character", "String")
+hl("Character", { fg = c.red })
 hl("Comment", { fg = c.green })
-hl("Conditional", { fg = c.fg })
+hl("Conditional", { fg = c.fg, bold = true })
 hl("Constant", { fg = c.fg })
-hl("Debug", { fg = c.purple, bold = true })
+hl("Debug", { fg = c.orange })
 hl("Define", { fg = c.fg })
-hl("Delimiter", { fg = c.fg_light })
+hl("Delimiter", { fg = c.fg })
 hl("Error", { fg = c.red })
 hl("Exception", { fg = c.red })
-hl("Float", { fg = c.bright_blue })
-hl("Function", { fg = c.blue, bold = true })
+hl("Float", { fg = c.bright_cyan })
+hl("Function", { fg = c.muted_red, bold = true })
 hl("Identifier", { fg = c.fg })
 hl("Ignore", { fg = c.fg_light })
 hl("Include", { fg = c.fg, bold = true })
 hl("Italic", { italic = true })
-hl("Keyword", { fg = c.fg })
-hl("Label", { fg = c.purple })
-hl("Macro", { fg = c.fg })
+hl("Keyword", { fg = "#000000", bold = true })
+hl("Label", { fg = c.muted_cyan }) -- todo
+hl("Macro", { fg = c.muted_cyan })
+-- hl("Number", { fg = c.bright_cyan })
 hl("Number", { fg = c.bright_blue })
 hl("Operator", { fg = c.fg })
 hl("PreCondit", { fg = c.orange })
 hl("PreProc", { fg = c.fg })
-hl("Removed", { fg = c.red })
+hl("Removed", { fg = c.muted_red })
 hl("Repeat", { fg = c.fg, bold = true })
 hl("Special", { fg = c.bright_blue })
 hl("SpecialChar", { fg = c.bright_blue })
-hl("SpecialComment", { fg = c.orange_red })
+hl("SpecialComment", "Comment")
 hl("Statement", { fg = c.fg, bold = true })
-hl("StorageClass", { fg = c.fg, bold = true })
-hl("String", { fg = c.green })
+hl("StorageClass", { fg = c.muted_cyan, bold = true })
+hl("String", { fg = c.red })
 hl("Structure", { fg = c.fg }) -- never know what to use this for
 hl("Tag", { fg = c.bright_blue })
-hl("Todo", { bg = c.light_blue, bold = true })
-hl("Type", { fg = c.pink, bold = false })
-hl("Typedef", { fg = c.fg })
+hl("Todo", { fg = c.muted_cyan, bold = true })
+hl("Type", { fg = c.off_cyan })
+hl("Typedef", { fg = c.muted_cyan })
 hl("Underlined", { underline = true })
 
-hl("LspCodeLens", { fg = c.fg_light2 })
+hl("LspCodeLens", { fg = c.fg_dark2 })
 hl("LspCodeLensSeparator", { fg = c.fg_light })
 hl("LspInfoBorder", { fg = c.fg_light, bg = c.bg })
 hl("LspInlayHint", "NonText")
@@ -196,27 +218,28 @@ hl("LspReferenceTarget", { bg = c.bg_dark })
 hl("LspReferenceText", { bg = c.bg_dark })
 hl("LspReferenceWrite", { bg = c.bg_dark })
 hl("LspSignatureActiveParameter", { underline = true, bold = true })
-hl("DiagnosticOk", { fg = c.green, bold = true }) -- todo not sure about diag colors
-hl("DiagnosticHint", { fg = c.fg_light, bold = true })
-hl("DiagnosticInfo", { fg = c.blue, bold = true })
-hl("DiagnosticWarn", { fg = c.dark_yellow, bold = true })
-hl("DiagnosticError", { fg = c.red, bold = true })
-hl("DiagnosticUnderlineOk", { sp = c.green, undercurl = true })
-hl("DiagnosticUnderlineHint", { sp = c.bright_blue, undercurl = true })
-hl("DiagnosticUnderlineInfo", { sp = c.cyan, undercurl = true })
-hl("DiagnosticUnderlineWarn", { sp = c.dark_yellow, undercurl = true })
-hl("DiagnosticUnderlineError", { sp = c.red, undercurl = true })
+hl("DiagnosticOk", { fg = c.green, bold = true })
+hl("DiagnosticHint", { fg = c.muted_blue, bold = true })
+hl("DiagnosticInfo", { fg = c.bright_blue, bold = true })
+hl("DiagnosticWarn", { fg = c.orange, bold = true })
+hl("DiagnosticError", { fg = c.muted_red, bold = true })
+hl("DiagnosticUnderlineOk", { sp = c.green, underline = true })
+hl("DiagnosticUnderlineHint", { sp = c.muted_blue, underline = true })
+hl("DiagnosticUnderlineInfo", { sp = c.muted_cyan, underline = true })
+hl("DiagnosticUnderlineWarn", { sp = c.orange, underline = true })
+hl("DiagnosticUnderlineError", { sp = c.muted_red, underline = true })
 hl("DiagnosticVirualTextOk", { fg = c.green })
-hl("DiagnosticVirualTextHint", { fg = c.bright_blue })
-hl("DiagnosticVirualTextInfo", { fg = c.bright_blue })
-hl("DiagnosticVirualTextWarn", { fg = c.dark_yellow })
-hl("DiagnosticVirualTextError", { fg = c.red })
+hl("DiagnosticVirualTextHint", { fg = c.muted_blue })
+hl("DiagnosticVirualTextInfo", { fg = c.muted_blue })
+hl("DiagnosticVirualTextWarn", { fg = c.orange })
+hl("DiagnosticVirualTextError", { fg = c.muted_red })
 
 hl("diffAdded", "Added")
 hl("diffRemoved", "Removed")
 hl("diffChanged", "Changed")
 hl("diffFile", { fg = c.fg })
 hl("diffLine", { fg = c.fg })
+
 
 -- == Treesitter == :h treesitter-highlight-groups
 hl("@variable", { fg = c.fg })
@@ -225,15 +248,15 @@ hl("@variable.parameter", {})
 hl("@variable.parameter.builtin", {})
 hl("@variable.member", {})
 hl("@constant", "Constant")
-hl("@constant.builtin", { fg = c.fg, bold = true })
+hl("@constant.builtin", { fg = c.muted_red, bold = true })
 hl("@constant.macro", { fg = c.fg })
 hl("@module", {})
-hl("@module.builtin", { fg = c.fg })
+hl("@module.builtin", { fg = c.muted_cyan });
 hl("@label", "Label")
 hl("@string", "String")
 hl("@string.documentation", "@comment.documentation")
 hl("@string.regexp", { fg = c.orange })
-hl("@string.escape", { fg = c.blue })
+hl("@string.escape", { fg = c.fg })
 hl("@string.special", { fg = c.fg })
 hl("@string.special.symbol", { fg = c.cyan })
 hl("@string.special.path", { fg = c.fg })
@@ -243,19 +266,19 @@ hl("@character.special", {})
 hl("@boolean", "Boolean")
 hl("@number", "Number")
 hl("@number.float", "Float")
-hl("@type", "Type")
-hl("@type.builtin", { fg = c.pink })
-hl "@type.definition"
-hl("@attribute", { fg = c.rep_blue, bold = true })
+hl("@type", { fg = c.muted_blue })
+hl("@type.builtin", "Type")
+hl("@type.definition") -- todo
+hl("@attribute", { fg = c.cyan })
 hl("@attribute.builtin", { bg = c.todo })
-hl "@property"
-hl("@function", "Function")
-hl "@function.builtin"
-hl "@function.call"
-hl("@function.macro", { fg = c.purple }) -- todo not sure
-hl("@function.method", "Function")
-hl "@function.method.call"
-hl("@constructor", { fg = c.bright_blue, bold = true })
+hl("@property")
+hl("@function", { fg = c.muted_red, bold = true })
+hl("@function.builtin", { fg = c.muted_cyan, bold = true })
+hl("@function.call")
+hl("@function.macro", { fg = c.muted_cyan })
+hl("@function.method", { fg = c.muted_red, bold = true })
+hl("@function.method.call")
+hl("@constructor", { fg = c.cyan, bold = true }) -- todo
 hl("@operator", "Operator")
 hl("@keyword", "Keyword")
 -- .coroutine .function .operator
@@ -263,11 +286,11 @@ hl("@keyword", "Keyword")
 -- .repeat .return .debug
 -- .exception .conditional .conditional.ternary
 -- .directive .directive.define
-hl("@punctuation", { fg = c.fg_light })
+hl("@punctuation", { fg = c.fg })
 -- .delimiter .bracket
-hl("@punctuation.special", { fg = c.fg })
+hl("@punctuation.special", { fg = c.fg, bold = true })
 hl("@comment", "Comment")
-hl("@comment.documentation", { fg = c.orange_red })
+hl("@comment.documentation", "Comment")
 hl("@comment.error", "DiagnosticError")
 hl("@comment.warning", "DiagnosticWarn")
 hl("@comment.todo", "Todo")
@@ -277,12 +300,12 @@ hl("@markup.italic", { italic = true })
 hl("@markup.strikethrough", { strikethrough = true })
 hl("@markup.underline", { underline = true })
 hl("@markup.heading", "Title")
-hl("@markup.quote", { fg = c.fg })
+hl("@markup.quote", { fg = c.fg})
 hl("@markup.math", { fg = c.bright_blue })
 hl("@markup.link", { fg = c.fg })
 hl("@markup.link.label", { fg = c.fg })
 hl("@markup.link.url", { fg = c.fg })
-hl("@markup.raw", { fg = c.bright_blue }) -- todo
+hl("@markup.raw", { fg = c.bright_blue })
 hl("@markup.raw.block", { fg = c.fg })
 hl("@markup.list", { fg = c.bright_blue })
 hl("@markup.list.checked", { fg = c.fg })
@@ -295,19 +318,20 @@ hl("@tag.builtin", { fg = c.blue })
 hl("@tag.attribute", { fg = c.fg })
 hl("@tag.delimiter", { fg = c.fg })
 
-hl "@constructor.lua"
+hl("@constructor.lua")
 hl("@keyword.import.zig", "@function.builtin")
--- hl("@lsp.type.lifetime.rust", "@attribute") -- todo
+hl("@lsp.type.lifetime.rust", "@attribute")
+hl("@string.typst", { fg = c.green })
 hl("@label.vimdoc", { fg = c.fg, bold = true })
 hl("@markup.link.vimdoc", { fg = c.bright_blue, bold = true })
 
 hl("BlinkCmpGhostText", "Comment")
 
-hl("LazySpecial", { fg = c.bright_blue }) -- todo lazy colors
+hl("LazySpecial", { fg = c.bright_blue })
 
-hl("TelescopeMatching", { bg = c.light_orange })
+hl("TelescopeMatching", { fg = c.muted_red, bold = true } )
 hl("TelescopeMultiIcon", { fg = c.fg, bold = true })
-hl("TelescopeMultiSelection", { fg = c.fg })
+hl("TelescopeMultiSelection", { fg = c.bright_blue })
 hl("TelescopePromptPrefix", { fg = c.fg, bold = true })
 hl("TelescopeSelectionCaret", { fg = c.fg, bg = c.fg_light2, bold = true })
-hl("TelescopeTitle", { fg = c.red, bold = true }) -- todo
+hl("TelescopeTitle", { fg = c.orange, bold = true })

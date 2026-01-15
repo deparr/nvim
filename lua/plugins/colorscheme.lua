@@ -11,8 +11,9 @@ return {
       require("tairiki.palette").register("alacritty", require "palettes.alacritty")
       require("tairiki").setup {
         palette = "alacritty",
-        plugins = { auto = true },
+        plugins = { auto = true, vim_syntax = true },
         -- plugins = { all = true },
+        code_style = { comments = { italic = false } },
         colors = function(c, _)
           local util = require "tairiki.util"
           c.dark_cyan = util.blend_bg(c.cyan, 0.9, c.bg)
@@ -40,6 +41,9 @@ return {
           -- consider upstream
           hl["@lsp.type.variable"] = {}
           hl["@variable.member"] = {}
+          if c.doc_comment then
+            hl["SpecialComment"] = { fg = c.doc_comment }
+          end
         end,
       }
     end,
@@ -52,6 +56,22 @@ return {
   { "sainnhe/sonokai" },
   { "ribru17/bamboo.nvim" },
   { "oskarnurm/koda.nvim" },
-  -- { "rebelot/kanagawa.nvim"},
-  -- { "nyoom-engineering/oxocarbon.nvim" },
+  { "e-q/okcolors.nvim" },
+  {
+    "webhooked/kanso.nvim",
+    opts = {
+      keywordStyle = { italic = false },
+      overrides = function(c)
+        return {
+          WinSeparator = { fg = c.theme.syn.comment },
+          StatusLine = { fg = c.theme.ui.fg_dim, bg = c.theme.ui.bg_p1 },
+        }
+      end,
+      foreground = {
+        light = "saturated",
+      },
+    },
+  },
+  { "projekt0n/github-nvim-theme" },
+  { "verf/deepwhite.nvim" },
 }
