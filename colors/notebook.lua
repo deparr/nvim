@@ -167,7 +167,7 @@ hl("Include", { fg = c.fg, bold = true })
 hl("Italic", { italic = true })
 hl("Keyword", { fg = c.fg })
 hl("Label", { fg = c.purple })
-hl("Macro", { fg = c.fg })
+hl("Macro", { fg = c.fg }) -- todo Also used for fugitive unstaged
 hl("Number", { fg = c.bright_blue })
 hl("Operator", { fg = c.fg })
 hl("PreCondit", { fg = c.orange })
@@ -301,9 +301,13 @@ hl("@keyword.import.zig", "@function.builtin")
 hl("@label.vimdoc", { fg = c.fg, bold = true })
 hl("@markup.link.vimdoc", { fg = c.bright_blue, bold = true })
 
+-- todo Good fugitive colors ?
+
 hl("BlinkCmpGhostText", "Comment")
 
-hl("LazySpecial", { fg = c.bright_blue }) -- todo lazy colors
+hl("LazyCommit", { fg = c.fg_light }) -- todo lazy colors
+hl("LazyLocal", { fg = c.red })
+hl("LazySpecial", { fg = c.bright_blue })
 
 hl("TelescopeMatching", { bg = c.light_orange })
 hl("TelescopeMultiIcon", { fg = c.fg, bold = true })

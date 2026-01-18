@@ -106,7 +106,7 @@ function M.regen_sub_groups(self)
     -- FloatTitle = { fg = self.orange, bg = self.none },
     -- FloatBorder = { fg = self.fg_dark},
     Debug = { fg = self.red },
-    Character = { fg = self.yellow },
+    Character = "String",
     Comment = { fg = self.comment },
     Label = { fg = self.cyan },
     MatchParen = { fg = self.bright_orange },
@@ -156,6 +156,11 @@ function M.regen_sub_groups(self)
 
     ["@function.builtin.go"] = "Function",
 
+    ["@markup.link"] = { fg = self.fg_dark },
+    ["@markup.link.label"] = { fg = self.orange },
+    ["@markup.link.url"] = { fg = self.fg, underdotted = true },
+    ["@markup.raw.block"] = { fg = self.fg },
+
     ["@punctuation.special.python"] = { fg = self.orange },
 
     ["@punctuation.special.bash"] = { fg = self.orange },
@@ -166,14 +171,13 @@ function M.regen_sub_groups(self)
     ["@punctuation.special.tsx"] = { fg = self.orange },
     ["@punctuation.special.typescript"] = { fg = self.orange },
 
-    -- gonna try plain constants for now
-    -- ["@constant.zig"] = { fg = self.orange },
     ["@keyword.import.zig"] = "Function",
-    ["@function.builtin.zig"] = "Function",
 
     ["@lsp.type.lifetime.rust"] = { fg = self.bright_green },
 
     ["@string.typst"] = { fg = self.green },
+
+    ["@label.markdown"] = { fg = self.green },
   }
 end
 
