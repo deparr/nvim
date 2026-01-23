@@ -46,7 +46,11 @@ return {
       textobj_map("a", "parameter")
       textobj_map("r", "return")
 
-      local installed_fts = vim.iter(ensure_installed):map(vim.treesitter.language.get_filetypes):flatten():totable()
+      local installed_fts = vim
+        .iter(require("nvim-treesitter").get_installed())
+        :map(vim.treesitter.language.get_filetypes)
+        :flatten()
+        :totable()
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = installed_fts,
