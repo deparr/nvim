@@ -3,7 +3,8 @@ vim.lsp.enable({
   "emmylua_ls",
   "gdscript",
   "gopls",
-  "vtsls",
+  "denols",
+  -- "vtsls",
   -- "tsgo",
   "zls",
   -- "rust-analyzer",
@@ -14,6 +15,8 @@ local disable_semantic_tokens = {
   zig = true, -- set in zls.json OR lsp/zls.lua
   -- rust = true,
   python = true, -- todo there should be a way to do this in pyright settings
+  typescript = true,
+  typescriptreact = true,
 }
 
 

@@ -74,4 +74,5 @@ return {
   },
   { "projekt0n/github-nvim-theme" },
   { "verf/deepwhite.nvim" },
+  { "Mofiqul/adwaita.nvim" },
 }
