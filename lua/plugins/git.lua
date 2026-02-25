@@ -22,7 +22,13 @@ return {
     },
   },
   {
+    "esmuellert/codediff.nvim",
+    lazy = false,
+    keys = { { "<leader>gd", "<cmd>CodeDiff<cr>" } },
+  },
+  {
     "sindrets/diffview.nvim",
+    enabled = false,
     -- dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = false,
     opts = { use_icons = false },

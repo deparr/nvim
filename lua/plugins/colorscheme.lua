@@ -70,9 +70,9 @@ return {
       foreground = {
         light = "saturated",
       },
+      minimal = true,
     },
   },
   { "projekt0n/github-nvim-theme" },
   { "verf/deepwhite.nvim" },
-  { "Mofiqul/adwaita.nvim" },
 }

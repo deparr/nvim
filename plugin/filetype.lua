@@ -5,6 +5,7 @@ vim.filetype.add({
     import = "dosini", -- godot import
   },
   filename = {
-    ["project.godot"] = "dosini"
+    ["project.godot"] = "dosini",
+    blogroll = "badrss",
   }
 })
