@@ -17,7 +17,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("vim._extui").enable { enable = true }
+require("vim._core.ui2").enable { enable = true }
 -- extui sets cursor blink always
 vim.cmd.set "guicursor=n:block,i-ci-ve:block-blinkon500-blinkoff500"
 
