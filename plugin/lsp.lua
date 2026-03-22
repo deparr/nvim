@@ -68,6 +68,32 @@ vim.diagnostic.config {
   },
 }
 
+local hl_map = {
+  [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+  [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+  [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+}
+
+vim.diagnostic.status = function(bufnr)
+  bufnr = bufnr or 0
+  local counts = vim.diagnostic.count(bufnr)
+  counts[vim.diagnostic.severity.ERROR] = counts[vim.diagnostic.severity.ERROR] or 0
+  counts[vim.diagnostic.severity.WARN] = counts[vim.diagnostic.severity.WARN] or 0
+  counts[vim.diagnostic.severity.INFO] = counts[vim.diagnostic.severity.INFO] or 0
+  local display = vim
+    -- dont think this has a reliable order but
+    .iter(pairs(hl_map))
+    :map(function(severity, hl)
+      return ("%%#%s#%s"):format(hl, counts[severity])
+    end)
+    :join(" ")
+
+    if display:len() > 0 then
+      display = ("[%s%%##]"):format(display)
+    end
+    return display
+end
+
 vim.keymap.set("n", "[d", function()
   vim.diagnostic.jump { float = true, count = 1, severity = { min = vim.diagnostic.severity.WARN } }
 end)

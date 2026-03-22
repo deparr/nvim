@@ -267,7 +267,7 @@ hl("@markup.link", { fg = c.fg })
 hl("@markup.link.label", { fg = c.red })
 hl("@markup.link.url", { fg = c.fg })
 hl("@markup.raw", { fg = c.green }) -- todo
-hl("@markup.raw.block", { fg = c.fg })
+hl("@markup.raw.block", { fg = c.green })
 hl("@markup.list", { fg = c.blue })
 hl("@markup.list.checked", { fg = c.fg })
 hl("@markup.list.unchecked", { fg = c.fg })
@@ -326,4 +326,10 @@ vim.treesitter.query.set("go", "highlights", [[
 [ "map" "chan" ] @keyword
 [ "continue" "break" ] @keyword.repeat
 [ "default" ] @keyword.conditional
+]])
+
+vim.treesitter.query.set("python", "highlights", [[
+; extends
+(class_definition
+  name: (identifier) @type.builtin)
 ]])

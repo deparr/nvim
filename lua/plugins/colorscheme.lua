@@ -75,4 +75,6 @@ return {
   },
   { "projekt0n/github-nvim-theme" },
   { "verf/deepwhite.nvim" },
+  -- { "oonamo/ef-themes.nvim" },
+  { dir = require("util").dev "deparr/oc-theme" },
 }

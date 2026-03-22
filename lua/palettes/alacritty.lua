@@ -24,12 +24,16 @@ local M = {
   -- cyan = "#58b090", -- more green cyan
   orange = "#cc7f40",
 
+  yellow_orange = "#c4956a",
+
   bright_red = "#d74a4c", -- more red bamboo red
   bright_green = "#aac474", -- orig
   -- bright_green = "#90c270", -- slight desat
+  rep_green = "#3fa66f",
   bright_yellow = "#feca88",
-  -- bright_blue = "#82b8c8", -- orig
-  bright_blue = "#56acd1", -- more sat
+  bright_blue = "#82b8c8", -- orig
+  -- bright_blue = "#56acd1", -- more sat
+  -- bright_blue = "#365987", -- rep blue
   bright_purple = "#c28cb8",
   bright_cyan = "#93d3c3",
   bright_orange = "#ffaa51",
@@ -113,7 +117,8 @@ function M.regen_sub_groups(self)
     Macro = { fg = self.red },
     MsgSeparator = { fg = self.none, bg = self.bg_light },
     NonText = "Comment",
-    PreProc = { fg = self.purple },
+    -- PreProc = { fg = self.purple },
+    PreProc = { fg = self.yellow_orange },
     SpecialKey = "Comment",
     SpecialChar = { fg = self.orange },
     Statement = { fg = self.purple },
@@ -128,7 +133,7 @@ function M.regen_sub_groups(self)
     ["@conceal"] = { fg = self.fg_dark },
     ["@constant.builtin"] = { fg = self.orange },
     ["@constant.macro"] = "Constant",
-    ["@constructor"] = { fg = self.bright_blue },
+    ["@constructor"] = { fg = self.rep_green },
     ["@comment.documentation"] = { fg = self.doc_comment },
     ["@function.builtin"] = "Function",
     ["@label"] = "Label",
@@ -144,7 +149,8 @@ function M.regen_sub_groups(self)
     ["@module"] = { fg = self.fg },
     ["@tag"] = { fg = self.blue },
     ["@tag.attribute"] = { fg = self.fg },
-    ["@tag.builtin"] = { fg = util.blend(self.red, self.yellow, 0.6) },
+    -- ["@tag.builtin"] = { fg = util.blend(self.red, self.yellow, 0.6) },
+    ["@tag.builtin"] = { fg = self.yellow_orange },
     ["@type"] = "Type",
     ["@type.builtin"] = "@type",
     -- dont like this but also dont like the bright green

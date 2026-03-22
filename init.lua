@@ -18,7 +18,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("vim._core.ui2").enable { enable = true }
--- extui sets cursor blink always
+-- extui sets cursor blink always, though this is being overwritten by wt anyway i think
 vim.cmd.set "guicursor=n:block,i-ci-ve:block-blinkon500-blinkoff500"
 
 require("lazy").setup("plugins", {
@@ -78,7 +78,7 @@ end
 vim.keymap.set("n", "<leader>r", function()
   package.loaded["palettes.alacritty"] = nil
   vim.cmd "Lazy reload tairiki.nvim"
-  require("tairiki.dump").colors_file("alacritty", { palette = "alacritty" })
+  require("tairiki.dump").colors_file("alacritty", { palette = "alacritty", code_style = { comments = { italic = false }}, plugins = { vim_syntax = true } })
 end)
 --]]
 
