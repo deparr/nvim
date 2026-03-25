@@ -40,9 +40,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end)
 
     local ft = vim.bo[bufnr].filetype
-    if disable_semantic_tokens[ft] then
-      client.server_capabilities.semanticTokensProvider = nil
-    end
+    vim.lsp.semantic_tokens.enable(not disable_semantic_tokens[ft], { client_id = client.id });
   end,
 })
 

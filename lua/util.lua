@@ -93,4 +93,40 @@ function M.set_term_colors(c)
   vim.g.terminal_color_15 = c.bright_white
 end
 
+local function notify(level, fmt, ...)
+  vim.notify(fmt:format(...), level)
+end
+
+M.log = {
+  error = function(fmt, ...)
+    notify(vim.log.levels.ERROR, fmt, ...)
+  end,
+  warn = function(fmt, ...)
+    notify(vim.log.levels.WARN, fmt, ...)
+  end,
+  info = function(fmt, ...)
+    notify(vim.log.levels.INFO, fmt, ...)
+  end,
+}
+
+function M.extract_from_file(filepath, pattern)
+  local f = io.open(filepath, "r")
+  if not f then
+    return nil
+  end
+  for line in f:lines() do
+    local target = line:match(pattern)
+    if target then
+      f:close()
+      return target
+    end
+  end
+  f:close()
+  return nil
+end
+
+function M.extractor(pattern)
+  return function(filepath) return M.extract_from_file(filepath, pattern) end
+end
+
 return M
