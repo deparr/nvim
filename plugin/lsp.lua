@@ -10,13 +10,13 @@ vim.lsp.enable({
   -- "rust-analyzer",
 })
 
-local disable_semantic_tokens = {
-  lua = true,
-  zig = true, -- set in zls.json OR lsp/zls.lua
+local enable_semantic_tokens = {
+  lua = false,
+  -- zig = true, -- set in zls.json OR lsp/zls.lua
   -- rust = true,
-  python = true, -- todo there should be a way to do this in pyright settings
-  typescript = true,
-  typescriptreact = true,
+  python = false, -- todo there should be a way to do this in pyright settings
+  typescript = false,
+  typescriptreact = false,
 }
 
 
@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end)
 
     local ft = vim.bo[bufnr].filetype
-    vim.lsp.semantic_tokens.enable(not disable_semantic_tokens[ft], { client_id = client.id });
+    vim.lsp.semantic_tokens.enable(enable_semantic_tokens[ft], { client_id = client.id });
   end,
 })
 
@@ -91,6 +91,7 @@ vim.diagnostic.status = function(bufnr)
     end
     return display
 end
+
 
 vim.keymap.set("n", "[d", function()
   vim.diagnostic.jump { float = true, count = 1, severity = { min = vim.diagnostic.severity.WARN } }
