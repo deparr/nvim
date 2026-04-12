@@ -74,11 +74,13 @@ if vim.g.neovide then
   -- require("util").set_term_colors(require("palettes.alacritty").terminal)
 end
 
---[[
+---[[
 vim.keymap.set("n", "<leader>r", function()
-  package.loaded["palettes.alacritty"] = nil
+  local palette = "automata"
+  package.loaded["palettes." .. palette] = nil
   vim.cmd "Lazy reload tairiki.nvim"
-  require("tairiki.dump").colors_file("alacritty", { palette = "alacritty", code_style = { comments = { italic = false }}, plugins = { vim_syntax = true } })
+  -- require("tairiki").load({ palette = palette })
+  require("tairiki.dump").colors_file(palette, { palette = palette, code_style = { comments = { italic = false }}, plugins = { vim_syntax = true } })
 end)
 --]]
 

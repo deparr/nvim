@@ -24,6 +24,10 @@ return {
   {
     "esmuellert/codediff.nvim",
     lazy = false,
+    opts = {
+      line_insert = "DiffAdd",
+      line_delete = "DiffDelete",
+    },
     keys = { { "<leader>gd", "<cmd>CodeDiff<cr>" } },
   },
   {

@@ -9,6 +9,7 @@ return {
       -- require("tairiki.palette").register("gruvbuddy", require "palettes.gruvbuddy")
       -- require("tairiki.palette").register("gruvbox", require "palettes.gruvbox")
       require("tairiki.palette").register("alacritty", require "palettes.alacritty")
+      require("tairiki.palette").register("automata", require "palettes.automata")
       require("tairiki").setup {
         palette = "alacritty",
         plugins = { auto = true, vim_syntax = true },
@@ -54,7 +55,6 @@ return {
   },
   { "sainnhe/sonokai" },
   { "ribru17/bamboo.nvim" },
-  { "e-q/okcolors.nvim" },
   {
     "webhooked/kanso.nvim",
     opts = {
@@ -71,8 +71,36 @@ return {
       minimal = true,
     },
   },
-  { "projekt0n/github-nvim-theme" },
-  { "verf/deepwhite.nvim" },
+  {
+    "ellisonleao/gruvbox.nvim",
+    config = function()
+      local p = require("gruvbox").palette or {}
+      require("gruvbox").setup {
+        terminal_colors = false,
+        italic = {
+          strings = false,
+          emphasis = true,
+          comments = false,
+          operators = false,
+        },
+        transparent_mode = true,
+        overrides = { -- these are merged, not replacments
+          NormalFloat = { bg = p.dark1 },
+          FloatTitle = { fg = p.bright_green, bg = p.dark1 },
+          StatusLine = { fg = p.light4, bg = p.dark1 },
+          -- copy these from alacritty, since I use transparent_mode
+          DiffAdd = { bg = "#333b23" },
+          DiffDelete = { bg = "#362b2b" },
+
+          Constant = { link = "GruvboxFg1" },
+          Operator = { link = "GruvboxFg1" },
+
+          ["@constant.builtin"] = { link = "GruvboxPurple" },
+          ["@punctuation.bracket"] = { link = "GruvboxFg2" },
+          ["@string.special.url"] = { link = "GruvboxAqua" },
+        },
+      }
+    end,
+  },
   -- { "oonamo/ef-themes.nvim" },
-  { dir = require("util").dev "deparr/oc-theme" },
 }

@@ -121,21 +121,21 @@ return {
         local theme = require("telescope.themes").get_dropdown { layout_config = { height = 25 } }
 
         local project_picker = function(opts)
-          local cmd = { "fd", "--exact-depth", "2", "--type", "d", "--color", "never", "-a", ".", unpack(util.proj_dirs) }
+          local cmd =
+            { "fd", "--exact-depth", "2", "--type", "d", "--color", "never", "-a", ".", unpack(util.proj_dirs) }
           opts = opts or {}
           pickers
             .new(opts, {
               prompt_title = "Switch Project",
-              finder = finders.new_oneshot_job(
-                cmd,
-                {}
-              ),
+              finder = finders.new_oneshot_job(cmd, {}),
               sorter = conf.file_sorter(opts),
               attach_mappings = function(prompt_bufnr, _)
                 actions.select_default:replace(function()
                   actions.close(prompt_bufnr)
                   local selection = action_state.get_selected_entry()
-                  if vim.cmd.Oil then vim.cmd.Oil(selection[1]) end
+                  if vim.cmd.Oil then
+                    vim.cmd.Oil(selection[1])
+                  end
                   vim.cmd.cd(selection[1])
                   vim.cmd "silent! wincmd o"
                 end)
