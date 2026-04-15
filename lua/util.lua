@@ -9,8 +9,7 @@ M.in_gdproj = vim.fs.root(0, function(n, _)
   return n == "project.godot" or n == ".godot"
 end) ~= nil
 
--- default to windows paths since this should only get used in neovide
-M.proj_dirs = { vim.env.DEV_ROOT or "v:\\dev" }
+M.proj_dirs = { M.dev_dir, }
 
 function M.dev(path)
   local si = path:find "/"
