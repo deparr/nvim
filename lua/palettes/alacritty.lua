@@ -39,6 +39,8 @@ local M = {
   bright_orange = "#ffaa51",
 
   comment = "#6b6b6b",
+  -- comment = "#bb8846", -- not bad
+  -- comment = "#e2c792", -- bamboo, needs green strings
   doc_comment = "#a89984",
   none = "none",
 }
@@ -128,7 +130,6 @@ function M.regen_sub_groups(self)
 
     LazyButtonActive = { fg = self.none, bg = self.bg },
 
-    -- TODO PreProc
     ["@character"] = "Character",
     ["@conceal"] = { fg = self.fg_dark },
     ["@constant.builtin"] = { fg = self.orange },
