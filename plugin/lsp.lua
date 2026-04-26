@@ -1,4 +1,4 @@
-vim.lsp.enable({
+vim.lsp.enable {
   -- "lua_ls",
   "emmylua_ls",
   "gdscript",
@@ -8,39 +8,42 @@ vim.lsp.enable({
   -- "tsgo",
   "zls",
   -- "rust-analyzer",
-})
+  "csharp_ls",
+}
 
 local enable_semantic_tokens = {
   lua = false,
   -- zig = true, -- set in zls.json OR lsp/zls.lua
   -- rust = true,
-  python = false, -- todo there should be a way to do this in pyright settings
+  python = false,
   typescript = false,
   typescriptreact = false,
 }
-
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local bufnr = args.buf
     local client = assert(vim.lsp.get_client_by_id(args.data.client_id), "invalid lsp client")
 
+    local telescope_builtin = require "telescope.builtin"
+    local opts = { buffer = bufnr }
+
     vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
-    vim.keymap.set("i", "<c-k>", vim.lsp.buf.signature_help)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover) -- set by default
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references)
-    vim.keymap.set("n", "gT", vim.lsp.buf.type_definition)
-    vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float) -- def is C-W [C-]d
-    vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename)
-    vim.keymap.set("n", "<leader>lca", vim.lsp.buf.code_action)
+    vim.keymap.set("i", "<c-k>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, opts)
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+    vim.keymap.set("n", "gr", telescope_builtin.lsp_references, opts)
+    vim.keymap.set("n", "gT", telescope_builtin.lsp_type_definitions, opts)
+    vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, opts)
+    vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "<leader>lca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>lf", function()
       require("conform").format { lsp_fallback = true }
-    end)
+    end) -- this shouldn't be here
 
     local ft = vim.bo[bufnr].filetype
-    vim.lsp.semantic_tokens.enable(enable_semantic_tokens[ft], { client_id = client.id });
+    vim.lsp.semantic_tokens.enable(enable_semantic_tokens[ft], { client_id = client.id })
   end,
 })
 
@@ -67,9 +70,9 @@ vim.diagnostic.config {
 }
 
 local hl_map = {
-  [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
-  [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
-  [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+  [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+  [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+  [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
 }
 
 vim.diagnostic.status = function(bufnr)
@@ -84,14 +87,13 @@ vim.diagnostic.status = function(bufnr)
     :map(function(severity, hl)
       return ("%%#%s#%s"):format(hl, counts[severity])
     end)
-    :join(" ")
+    :join " "
 
-    if display:len() > 0 then
-      display = ("[%s%%##]"):format(display)
-    end
-    return display
+  if display:len() > 0 then
+    display = ("[%s%%##]"):format(display)
+  end
+  return display
 end
-
 
 vim.keymap.set("n", "[d", function()
   vim.diagnostic.jump { float = true, count = 1, severity = { min = vim.diagnostic.severity.WARN } }

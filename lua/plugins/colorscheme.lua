@@ -39,6 +39,14 @@ return {
           hl["@variable.powershell"] = { fg = c.syn.constant }
           hl["@operator.powershell"] = { fg = c.yellow }
 
+          -- make docs more readable
+          hl["@variable.parameter.vimdoc"] = { fg = c.orange }
+
+          -- hl["@lsp.type.keyword.cs"] = {}
+          -- hl["@lsp.type.class.cs"] = {}
+          -- hl["@lsp.mod.static.cs"] = "Type"
+          -- hl["@lsp.typemod.method.static.cs"] = "Function"
+
           -- consider upstream
           hl["@lsp.type.variable"] = {}
           hl["@variable.member"] = {}
@@ -54,7 +62,9 @@ return {
     opts = { better_diff_colors = true, match_paren_color = "purple", high_contrast_win_separator = true },
   },
   { "sainnhe/sonokai" },
-  { "ribru17/bamboo.nvim" },
+  { "ribru17/bamboo.nvim", opts = {
+    transparent = true,
+  } },
   {
     "webhooked/kanso.nvim",
     opts = {
@@ -102,5 +112,6 @@ return {
       }
     end,
   },
+  { "barrettruth/midnight.nvim" },
   -- { "oonamo/ef-themes.nvim" },
 }

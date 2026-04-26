@@ -74,7 +74,7 @@ if vim.g.neovide then
   -- require("util").set_term_colors(require("palettes.alacritty").terminal)
 end
 
----[[
+--[[
 vim.keymap.set("n", "<leader>r", function()
   local palette = "automata"
   package.loaded["palettes." .. palette] = nil
@@ -85,7 +85,8 @@ end)
 --]]
 
 -- require("tairiki").load()
-vim.cmd.colorscheme "alacritty"
+-- vim.cmd.colorscheme "alacritty"
+vim.cmd.colorscheme "automata"
 -- vim.cmd.colorscheme "notebook"
 vim.o.winborder = vim.o.background == "light" and "rounded" or "none"
 if require("util").in_gdproj then

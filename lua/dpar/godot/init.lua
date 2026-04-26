@@ -9,6 +9,7 @@ M.config = {
 M.config = vim.tbl_deep_extend("force", M.config, opts or {})
 
 -- sets up the :Godot command
+-- I don't like how any of this is setup
 require "dpar.godot.editor"
 if M.config.auto_connect then
   require "dpar.godot.connect" { args = { M.config.godot_addr } } -- this sucks

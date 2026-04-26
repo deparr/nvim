@@ -28,7 +28,7 @@ return {
       cmdline = { enabled = false },
       signature = { enabled = true, window = { show_documentation = false } },
       completion = {
-        menu = { auto_show = false },
+        menu = { auto_show = false, border = "none" },
         accept = { auto_brackets = { enabled = false } },
         ghost_text = { enabled = true, show_with_menu = false },
         documentation = { auto_show = false, auto_show_delay_ms = 300 },
