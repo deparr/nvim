@@ -62,7 +62,7 @@ set("n", "<leader>o", ':e <C-R>=expand("%:p:h") . "/" <cr>')
 
 set("n", "<M-l>", "<cmd>silent nohlsearch<cr>")
 
-set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/I<Left><Left>]])
 set("n", "<leader>x", "<cmd>silent !chmod +x %<CR>", { silent = true })
 set("n", "<C-f>", "<cmd>silent !tmux popup tmuxs<CR>");
 

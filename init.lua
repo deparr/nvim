@@ -85,8 +85,8 @@ end)
 --]]
 
 -- require("tairiki").load()
--- vim.cmd.colorscheme "alacritty"
-vim.cmd.colorscheme "automata"
+vim.cmd.colorscheme "alacritty"
+-- vim.cmd.colorscheme "automata"
 -- vim.cmd.colorscheme "notebook"
 vim.o.winborder = vim.o.background == "light" and "rounded" or "none"
 if require("util").in_gdproj then

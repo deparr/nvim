@@ -64,6 +64,11 @@ return {
   { "sainnhe/sonokai" },
   { "ribru17/bamboo.nvim", opts = {
     transparent = true,
+    highlights = {
+      ["@variable.member"] = { fg = "clear" }, -- abuse the way they substitute colors
+      ["@property"] = { fg = "$cyan" },
+      ["@function.builtin"] = { link = "@function" },
+    },
   } },
   {
     "webhooked/kanso.nvim",

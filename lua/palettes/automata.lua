@@ -3,6 +3,7 @@ local util = require("tairiki.util")
 local M = {
   fg = "#1f1f1e",
   bg = "#dad4ba",
+  -- bg = "#f7f4f2",
 
   -- terminal only colors
   bright_white = "#000000",
@@ -107,7 +108,7 @@ function M.regen_sub_groups(self)
     Character = "String",
     Comment = { fg = self.comment },
     Label = { fg = self.purple },
-    MatchParen = { fg = self.bg, bg = self.purple },
+    MatchParen = { fg = self.bright_blue, bold = true },
     -- Macro = {}, -- todo
     NonText = { fg = self.olive },
     PreProc = { fg = self.olive },
