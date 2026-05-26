@@ -16,13 +16,23 @@ return {
         nerd_font_variant = "normal",
       },
       sources = {
-        default = { "lazydev", "lsp", "path", "buffer" },
+        default = { "lazydev", "lsp", "path", "buffer", "godot_uid", "godot_res" },
         providers = {
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
             score_offset = 100,
           },
+          godot_res = {
+            name = "godot-res",
+            module = "dpar.godot.blink.res",
+            fallbacks = {},
+          },
+          godot_uid = {
+            name = "godot-uid",
+            module = "dpar.godot.blink.uid",
+            fallbacks = {},
+          }
         },
       },
       cmdline = { enabled = false },
