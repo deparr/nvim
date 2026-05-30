@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
   callback = function()
-    vim.highlight.on_yank { higroup = "IncSearch", timeout = 30 }
+    vim.hl.hl_op { higroup = "IncSearch", timeout = 30 }
   end,
 })
 
@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
 })
 
 local text = vim.api.nvim_create_augroup("text", { clear = true })
-vim.api.nvim_create_autocmd("Filetype", {
+vim.api.nvim_create_autocmd("FileType", {
   pattern = { "text", "markdown", "mail", "gitcommit", "djot" },
   group = text,
   command = "setlocal spell tw=72 colorcolumn=73",
