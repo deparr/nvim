@@ -119,5 +119,7 @@ return {
   },
   { "barrettruth/midnight.nvim" },
   { "AlessandroYorba/Breve" },
+  { "ogswag/envy.nvim" },
+  -- { "kkga/vim-envy" },
   -- { "oonamo/ef-themes.nvim" },
 }
