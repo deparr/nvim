@@ -43,7 +43,7 @@ return {
           hl["@variable.parameter.vimdoc"] = { fg = c.orange }
 
           -- hl["@lsp.type.keyword.cs"] = {}
-          -- hl["@lsp.type.class.cs"] = {}
+          hl["@lsp.type.enumMember.cs"] = {}
           -- hl["@lsp.mod.static.cs"] = "Type"
           -- hl["@lsp.typemod.method.static.cs"] = "Function"
 
@@ -118,5 +118,6 @@ return {
     end,
   },
   { "barrettruth/midnight.nvim" },
+  { "AlessandroYorba/Breve" },
   -- { "oonamo/ef-themes.nvim" },
 }

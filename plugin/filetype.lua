@@ -3,6 +3,7 @@ vim.filetype.add({
     djot = "djot",
     dj = "djot",
     import = "dosini", -- godot import
+    gdshaderinc = "gdshader",
     fs = "glsl",
     compute = "glsl",
     comp = "glsl",

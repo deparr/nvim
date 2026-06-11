@@ -2,8 +2,8 @@ local util = require("tairiki.util")
 
 local M = {
   fg = "#1f1f1e",
-  bg = "#dad4ba",
-  -- bg = "#f7f4f2",
+  -- bg = "#dad4ba",
+  bg = "#f7f4f2",
 
   -- terminal only colors
   bright_white = "#000000",
