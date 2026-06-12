@@ -118,8 +118,16 @@ return {
     end,
   },
   { "barrettruth/midnight.nvim" },
-  { "AlessandroYorba/Breve" },
-  { "ogswag/envy.nvim" },
+  { "ogswag/envy.nvim", opts = {
+    on_highlights = function(hl, c)
+      hl["MatchParen"] = { bg = c.lyellow, bold = true }
+      hl["Search"] = { bg = c.lyellow, bold = true }
+      hl["IncSearch"] = { bg = c.lyellow, bold = true }
+      hl["CurSearch"] = { bg = c.lred, bold = true }
+      hl["Macro"] = { fg = c.orange }
+      hl["@function.builtin.zig"] = { link = "Macro" }
+    end,
+  }},
   -- { "kkga/vim-envy" },
   -- { "oonamo/ef-themes.nvim" },
 }
