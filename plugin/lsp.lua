@@ -3,8 +3,8 @@ vim.lsp.enable {
   "emmylua_ls",
   "gdscript",
   "gopls",
-  -- "denols",
-  "vtsls",
+  "denols",
+  -- "vtsls",
   -- "tsgo",
   "zls",
   -- "rust-analyzer",
@@ -14,7 +14,7 @@ vim.lsp.enable {
 local enable_semantic_tokens = {
   lua = false,
   -- zig = true, -- set in zls.json OR lsp/zls.lua
-  -- rust = true,
+  rust = false,
   python = false,
   typescript = false,
   typescriptreact = false,

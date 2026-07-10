@@ -15,8 +15,10 @@ local M = {
   dark_red = "#ac4242",
 
   red = "#c55555",
-  green = "#90a959",
-  yellow = "#f4bf75",
+  green = "#90a959", -- orig
+  -- green = "#87af5f", -- scuffed-sonokai green
+  -- yellow = "#f4bf75", -- orig
+  yellow = "#d7af5f", -- scuffed-sonokai yellow
   -- yellow = "#e5c07b", -- onedark yellow
   blue = "#6a9fb5",
   purple = "#aa759f",
@@ -38,7 +40,8 @@ local M = {
   bright_cyan = "#93d3c3",
   bright_orange = "#ffaa51",
 
-  comment = "#6b6b6b",
+  -- comment = "#6b6b6b",
+  comment = "#949494", -- scuffed-sonokai
   -- comment = "#bb8846", -- not bad
   -- comment = "#e2c792", -- bamboo, needs green strings
   doc_comment = "#a89984",
