@@ -59,7 +59,7 @@ function godot_uid:get_completions(context, callback)
     return callback { is_incomplete_forward = false, is_incomplete_backward = false, items = cache.uids }
   end
 
-  vim.notify("shelling out for uids")
+  -- vim.notify("shelling out for uids")
   vim.system({ "fd", "-e", "uid" }, { text = true }, function(result)
     if result.code ~= 0 then
       callback()
