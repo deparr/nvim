@@ -5,7 +5,9 @@ local M = {
   -- fg = "#d0d0d0",
   -- fg = "#c8c8c8",
   fg = "#bcbcbc", -- scuffed-sonokai fg
-  bg = "#262626",
+  -- bg = "#262626",
+  bg = "#282c34", -- ghostty default dark
+  -- bg = "#2d2a2e",
 
   bright_white = "#f8f8f8",
   white = "#d8d8d8",
@@ -48,9 +50,12 @@ local M = {
   none = "none",
 }
 
-M.bg_light = "#343434"
-M.bg_light2 = "#424242"
-M.bg_light3 = M.black
+-- M.bg_light = "#343434"
+-- M.bg_light2 = "#424242"
+M.bg_light = "#30343c" -- ghostty default dark
+M.bg_light2 = "#383c44" -- ghostty default dark
+-- M.bg_light3 = M.black
+M.bg_light3 = M.bg_light
 M.fg_dark = "#a8a8a8"
 M.fg_dark2 = M.gray
 M.fg_dark3 = M.gray

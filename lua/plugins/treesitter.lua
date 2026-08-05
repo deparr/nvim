@@ -58,6 +58,8 @@ return {
           vim.treesitter.start(ev.buf)
         end,
       })
+
+      vim.g.go_highlight_functions = 1
     end,
   },
 }

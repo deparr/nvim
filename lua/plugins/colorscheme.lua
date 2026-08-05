@@ -62,14 +62,17 @@ return {
     opts = { better_diff_colors = true, match_paren_color = "purple", high_contrast_win_separator = true },
   },
   { "sainnhe/sonokai" },
-  { "ribru17/bamboo.nvim", opts = {
-    transparent = true,
-    highlights = {
-      ["@variable.member"] = { fg = "clear" }, -- abuse the way they substitute colors
-      ["@property"] = { fg = "$cyan" },
-      ["@function.builtin"] = { link = "@function" },
+  {
+    "ribru17/bamboo.nvim",
+    opts = {
+      transparent = true,
+      highlights = {
+        ["@variable.member"] = { fg = "clear" }, -- abuse the way they substitute colors
+        ["@property"] = { fg = "$cyan" },
+        ["@function.builtin"] = { link = "@function" },
+      },
     },
-  } },
+  },
   {
     "webhooked/kanso.nvim",
     opts = {

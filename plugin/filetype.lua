@@ -6,7 +6,6 @@ vim.filetype.add({
     gdshaderinc = "gdshader",
     fs = "glsl",
     compute = "glsl",
-    comp = "glsl",
     vs = "glsl",
   },
   filename = {
