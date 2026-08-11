@@ -4,12 +4,10 @@ return {
   filetypes = {
     "javascript",
     "javascriptreact",
-    "javascript.jsx",
     "typescript",
     "typescriptreact",
-    "typescript.tsx",
   },
-  root_markers = { "deno.lock" },
+  root_markers = { "deno.jsonc", "deno.json", },
   settings = {
     deno = {
       enable = true,
