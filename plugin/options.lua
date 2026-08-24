@@ -58,6 +58,8 @@ opt.gdefault = true -- docs say this can break plugins
 opt.termguicolors = true
 opt.isfname:append "@-@"
 
+opt.spellfile = vim.fn.stdpath "config" .. "/spell/en.utf-8.add"
+
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
