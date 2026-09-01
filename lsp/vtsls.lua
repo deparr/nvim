@@ -1,5 +1,5 @@
 return {
-  cmd = { "bun", "x", "--bun", "vtsls", "--stdio" },
+  cmd = { "vtsls", "--stdio" },
   filetypes = {
     "javascript",
     "javascriptreact",

@@ -210,7 +210,7 @@ hl("Whitespace", { fg = c.fg_dim })
 hl("WildMenu", "CurSearch")
 hl("WinBar", "StatusLine")
 hl("WinBarNC", "StatusLineNC")
-hl("WinSeparator", { fg = c.fg })
+hl("WinSeparator", { fg = vim.o.bg == "dark" and c.fg_dim or c.fg })
 hl("lCursor", { fg = c.bg, bg = c.fg })
 
 -- == Neovim Syntax ==
@@ -298,6 +298,7 @@ hl("@function.method.call", { fg = c.fg })
 hl("@markup.link.url", { underdotted = true })
 hl("@markup.link", { fg = c.blue }) -- sus
 hl("@markup.raw", { fg = c.fg })
+hl("@tag.attribute", { fg = c.structure })
 
 hl("@constructor.lua", { fg = c.fg })
 
