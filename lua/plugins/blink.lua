@@ -25,14 +25,16 @@ return {
           },
           godot_res = {
             name = "godot-res",
-            module = "dpar.godot.blink.res",
+            module = "godot-tools.blink.res",
+            score_offset = 100,
             fallbacks = {},
           },
           godot_uid = {
             name = "godot-uid",
-            module = "dpar.godot.blink.uid",
+            module = "godot-tools.blink.uid",
+            score_offset = 100,
             fallbacks = {},
-          }
+          },
         },
       },
       cmdline = { enabled = false },

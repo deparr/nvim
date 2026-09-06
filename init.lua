@@ -84,11 +84,15 @@ vim.keymap.set("n", "<leader>r", function()
 end)
 --]]
 
+vim.keymap.set("n", "<leader>r", function()
+  vim.cmd "Lazy reload godot-tools.nvim"
+end)
+
 -- require("tairiki").load()
 vim.cmd.colorscheme "alacritty"
 -- vim.cmd.colorscheme "automata"
 -- vim.cmd.colorscheme "notebook"
 vim.o.winborder = vim.o.background == "light" and "rounded" or "none"
-if require("util").in_gdproj then
-  require "dpar.godot"
-end
+-- if require("util").in_gdproj then
+--   require "dpar.godot"
+-- end
