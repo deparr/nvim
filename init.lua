@@ -88,6 +88,17 @@ vim.keymap.set("n", "<leader>r", function()
   vim.cmd "Lazy reload godot-tools.nvim"
 end)
 
+vim.keymap.set("n", "<leader>e", function()
+  local target = "^godot%-tools.*$"
+  local res = {}
+  for _, k in ipairs(vim.tbl_keys(package.loaded)) do
+    if k:match(target) then
+      res[#res + 1] = k
+    end
+  end
+  vim.print(vim.inspect(res))
+end)
+
 -- require("tairiki").load()
 vim.cmd.colorscheme "alacritty"
 -- vim.cmd.colorscheme "automata"

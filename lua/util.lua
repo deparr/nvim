@@ -5,9 +5,7 @@ M.is_windows = vim.uv.os_uname().sysname:match ".*[wW]indows.*" ~= nil
 vim.g.is_windows = M.is_windows
 M.dev_dir = vim.env.DEV_ROOT and vim.env.DEV_ROOT or (M.is_windows and "V:\\dev" or "~/dev")
 M.plug_dir = M.dev_dir .. "/deparr"
-M.in_gdproj = vim.fs.root(0, function(n, _)
-  return n == "project.godot" or n == ".godot"
-end) ~= nil
+M.in_gdproj = vim.fs.root(0, "project.godot") ~= nil
 
 M.proj_dirs = { M.dev_dir, }
 

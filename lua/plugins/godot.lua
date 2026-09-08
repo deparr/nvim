@@ -3,10 +3,10 @@ return {
     -- "deparr/godot-tools.nvim",
     dir = require("util").dev "deparr/godot-tools.nvim",
     config = function()
-      local godot = require "godot-tools"
-      godot.setup {
-        auto_connect = require("util").in_gdproj,
-      }
+      -- local godot = require "godot-tools"
+      -- godot.setup {
+      --   auto_connect = require("util").in_gdproj,
+      -- }
 
       vim.keymap.set("n", "<A-o>", function()
         require("godot-tools.run").toggle_console()
@@ -17,5 +17,16 @@ return {
     end,
   },
   { "CultOfTheBlob/godot-scenetree.nvim", opts = { picker = "telescope" } },
-  { "Mathijs-Bakker/godotdev.nvim", opts = {} },
+  {
+    "Mathijs-Bakker/godotdev.nvim",
+    lazy = true,
+    opts = {
+      godot_path = "godot-dev",
+      run = {
+        console = {
+          enabled = true,
+        },
+      },
+    },
+  },
 }
