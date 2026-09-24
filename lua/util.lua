@@ -6,8 +6,11 @@ vim.g.is_windows = M.is_windows
 M.dev_dir = vim.env.DEV_ROOT and vim.env.DEV_ROOT or (M.is_windows and "V:\\dev" or "~/dev")
 M.plug_dir = M.dev_dir .. "/deparr"
 M.in_gdproj = vim.fs.root(0, "project.godot") ~= nil
+M.gd_proj_is_mono = M.in_gdproj and vim.fs.root(0, function(n, _)
+  return vim.fs.ext(n) == "csproj"
+end) ~= nil
 
-M.proj_dirs = { M.dev_dir, }
+M.proj_dirs = { M.dev_dir }
 
 function M.dev(path)
   local si = path:find "/"
@@ -123,7 +126,9 @@ function M.extract_from_file(filepath, pattern)
 end
 
 function M.extractor(pattern)
-  return function(filepath) return M.extract_from_file(filepath, pattern) end
+  return function(filepath)
+    return M.extract_from_file(filepath, pattern)
+  end
 end
 
 return M

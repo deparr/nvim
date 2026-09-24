@@ -74,22 +74,6 @@ return {
     },
   },
   {
-    "webhooked/kanso.nvim",
-    opts = {
-      keywordStyle = { italic = false },
-      overrides = function(c)
-        return {
-          WinSeparator = { fg = c.theme.syn.comment },
-          StatusLine = { fg = c.theme.ui.fg_dim, bg = c.theme.ui.bg_p1 },
-        }
-      end,
-      foreground = {
-        light = "saturated",
-      },
-      minimal = true,
-    },
-  },
-  {
     "ellisonleao/gruvbox.nvim",
     config = function()
       local p = require("gruvbox").palette or {}
@@ -120,5 +104,5 @@ return {
       }
     end,
   },
-  { "barrettruth/midnight.nvim" },
+  { "https://forge.barrettruth.com/barrettruth/midnight.nvim" },
 }

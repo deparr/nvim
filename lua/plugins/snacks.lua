@@ -14,6 +14,7 @@ return {
       picker = {
         prompt = "> ",
         layout = { preset = "telescope" },
+        ui_select = true,
         icons = {
           files = { enabled = false },
           git = { enabled = false }, -- this just doesn't work for git_log
