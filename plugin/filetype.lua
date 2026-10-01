@@ -2,14 +2,14 @@ vim.filetype.add({
   extension = {
     djot = "djot",
     dj = "djot",
-    import = "dosini", -- godot import
+    import = "gdresource", -- godot import
     gdshaderinc = "gdshader",
     fs = "glsl",
     compute = "glsl",
     vs = "glsl",
   },
   filename = {
-    ["project.godot"] = "dosini",
+    ["project.godot"] = "gdresource",
     blogroll = "badrss",
   }
 })
