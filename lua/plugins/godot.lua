@@ -6,11 +6,15 @@ return {
       local godot = require "godot-tools"
       local util = require "util"
       local bin = util.gd_proj_is_mono and "godot-mono" or "godot"
-      -- if util.is_windows then
-      --   bin = bin .. "_console"
-      -- end
+      local console_bin = bin
+      if util.is_windows then
+        console_bin = bin .. "_console"
+      end
       godot.setup {
-        godot_bin = bin,
+        run = {
+          bin = bin,
+          bin_console = console_bin
+        },
         editor = {
           auto_connect = util.in_gdproj
         },
