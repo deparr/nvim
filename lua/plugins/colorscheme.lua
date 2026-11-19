@@ -105,4 +105,5 @@ return {
     end,
   },
   { "https://forge.barrettruth.com/barrettruth/midnight.nvim" },
+  { "dybdeskarphet/min.nvim" },
 }
